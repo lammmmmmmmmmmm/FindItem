@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace CharacterController {
+namespace Character {
     public class PlayerController : MonoBehaviour {
         [SerializeField] private float moveSpeed = 10f;
         
