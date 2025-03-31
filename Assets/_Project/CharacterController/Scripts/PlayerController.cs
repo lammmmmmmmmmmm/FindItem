@@ -4,19 +4,21 @@ using UnityEngine.InputSystem;
 namespace CharacterController {
     public class PlayerController : MonoBehaviour {
         [SerializeField] private float moveSpeed = 10f;
-        private UnityEngine.CharacterController _characterController;
         
+        private Rigidbody2D _rb;
         private PlayerInput _playerInput;
         private InputAction _moveAction;
         
         private void Awake() {
-            _characterController = GetComponent<UnityEngine.CharacterController>();
+            _rb = GetComponent<Rigidbody2D>();
             _playerInput = GetComponent<PlayerInput>();
             _moveAction = _playerInput.actions["Move"];
         }
 
         private void Update() {
-            _characterController.Move(_moveAction.ReadValue<Vector2>() * (moveSpeed * Time.deltaTime));
+            Vector2 moveDirection = _moveAction.ReadValue<Vector2>();
+            moveDirection *= moveSpeed;
+            _rb.velocity = moveDirection;
         }
     }
 }
