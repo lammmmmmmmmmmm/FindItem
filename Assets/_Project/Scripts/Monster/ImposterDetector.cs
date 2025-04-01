@@ -7,30 +7,26 @@ namespace Survivor.Enemy
 {
     public class ImposterDetector : MonoBehaviour
     {
-        //private Imposter _imposterDetected;
-        private PlayerMovement _playerTarget;
-
-        public PlayerMovement PlayerTarget()
-        {
-            Debug.Log("Check");
-            return _playerTarget;
-
-        }
+        private IImposter _targetImposter;
+        public IImposter TargetImposter => _targetImposter;
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.TryGetComponent<PlayerMovement>(out var character))
+            if (_targetImposter != null)
+                return;
+
+            if (other.TryGetComponent<IImposter>(out var imposter))
             {
-                _playerTarget = character;
+                _targetImposter = imposter;
             }
         }
 
         private void OnTriggerExit2D(Collider2D other)
         {
-            if (_playerTarget == null)
+            if (_targetImposter == null)
                 return;
 
-            if (other.GetComponent<PlayerMovement>() == _playerTarget)
+            if (other.GetComponent<IImposter>() == _targetImposter)
             {
                 RemoveCharacterTarget();
             }
@@ -38,7 +34,7 @@ namespace Survivor.Enemy
 
         private void RemoveCharacterTarget()
         {
-            _playerTarget = null;
+            _targetImposter = null;
         }
     }
 }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Pathfinding;
 using Survivor.Enemy;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
@@ -10,36 +11,45 @@ namespace Survivor.Enemy
     public class MonsterRunState : IState
     {
         private readonly MonsterController _monsterController;
+        private readonly IAstarAI _aiMovement;
 
         private Transform _transform;
         private Vector2 _targetPosition;
 
-        public MonsterRunState(MonsterController monsterController)
+        private Vector2 _minPosition = new Vector2(-5, -5);
+        private Vector2 _maxPosition = new Vector2(5, 5);
+
+        public MonsterRunState(MonsterController monsterController, IAstarAI aiMovement)
         {
             _monsterController = monsterController;
+            _aiMovement = aiMovement;
         }
 
         public void OnEnter()
         {
-            throw new System.NotImplementedException();
-        }
-
-        public void OnExit()
-        {
-            throw new System.NotImplementedException();
+            _aiMovement.canMove = true;
+            _aiMovement.destination = UpdateTarget();
+            _aiMovement.SearchPath();
         }
 
         public void Tick()
         {
-            if (Vector2.Distance(_transform.position, _targetPosition) < 0.1f)
+            if (!_aiMovement.pathPending && (_aiMovement.reachedEndOfPath || !_aiMovement.hasPath))
             {
-                UpdateTarget();
+                _aiMovement.destination = UpdateTarget();
+                _aiMovement.SearchPath();
             }
         }
 
-        private void UpdateTarget()
+        public void OnExit()
         {
-            
+            Debug.Log($"Exit state: Run");
+        }
+
+        private Vector2 UpdateTarget()
+        {
+            MathUtils.Random(ref _targetPosition, _minPosition, _maxPosition);
+            return _targetPosition;
         }
 
         private void Run()

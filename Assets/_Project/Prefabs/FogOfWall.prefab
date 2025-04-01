@@ -55,11 +55,11 @@ MonoBehaviour:
   ShaderEyeOffset: 0
   VisionHeight: 3
   VisionHeightSoftenDistance: 1.5
-  SampleHidersAtRevealerHeight: 1
+  SampleHidersAtRevealerHeight: 0
   CalculateHidersAtHiderHeight: 0
   ObstacleMask:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 256
   RaycastResolution: 0.5
   ResolveEdge: 1
   MaxEdgeResolveIterations: 10

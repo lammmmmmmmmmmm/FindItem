@@ -2,7 +2,8 @@ using HumanBot.States;
 using UnityEngine;
 
 namespace HumanBot.Entities {
-    public class HumanBot : MonoBehaviour {
+    public class HumanBot : MonoBehaviour, IImposter
+    {
         private StateMachine _stateMachine;
 
         private void Start() {
@@ -14,6 +15,12 @@ namespace HumanBot.Entities {
 
         private void Update () {
             _stateMachine.Tick();
+        }
+
+        public void Die()
+        {
+            Debug.Log("Die");
+            Destroy(gameObject);
         }
     }
 }

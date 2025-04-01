@@ -19,7 +19,7 @@ public class MonsterIdleState : IState
 
     public void OnExit()
     {
-        throw new System.NotImplementedException();
+        Debug.Log($"Exit state: Run");
     }
 
     public void Tick()
