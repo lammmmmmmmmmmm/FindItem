@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace Character {
-    public class PlayerController : MonoBehaviour {
+    public class PlayerMovement : MonoBehaviour {
         [SerializeField] private float moveSpeed = 10f;
         
         private Rigidbody2D _rb;
@@ -19,6 +19,10 @@ namespace Character {
             Vector2 moveDirection = _moveAction.ReadValue<Vector2>();
             moveDirection *= moveSpeed;
             _rb.velocity = moveDirection;
+        }
+        
+        public void SetMoveSpeed(float speed) {
+            moveSpeed = speed;
         }
     }
 }
