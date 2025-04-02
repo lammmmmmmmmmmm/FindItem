@@ -37,7 +37,6 @@ namespace HumanBot.States {
         
         public void SetTarget(GameObject target) {
             if (!target || target == _currentTarget) return;
-            Debug.Log("Target set to: " + target.name);
             
             _currentTarget = target;
         }

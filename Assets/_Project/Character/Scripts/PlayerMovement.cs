@@ -20,7 +20,7 @@ namespace Character {
             CurrentMoveSpeed = defaultMoveSpeed;
         }
 
-        private void Update() {
+        private void FixedUpdate() {
             Vector2 moveDirection = _moveAction.ReadValue<Vector2>();
             moveDirection *= CurrentMoveSpeed;
             _rb.velocity = moveDirection;
