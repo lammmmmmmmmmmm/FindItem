@@ -1,3 +1,4 @@
+using _Global;
 using Pathfinding;
 using UnityEngine;
 
@@ -6,8 +7,8 @@ namespace HumanBot.States {
         private const float WANDERING_RADIUS = 20;
         private readonly IAstarAI _ai;
         
-        public WanderingState(Entities.HumanBot humanBot) {
-            _ai = humanBot.GetComponent<IAstarAI>();
+        public WanderingState(IAstarAI ai) {
+            _ai = ai;
         }
 
         public void OnEnter() {

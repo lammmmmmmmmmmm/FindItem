@@ -1,3 +1,4 @@
+using _Global;
 using UnityEngine;
 
 namespace Item {

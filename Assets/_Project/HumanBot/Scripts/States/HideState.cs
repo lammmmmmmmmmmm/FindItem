@@ -1,3 +1,5 @@
+using _Global;
+
 namespace HumanBot.States {
     public class HideState : IState {
         public void Tick() {
