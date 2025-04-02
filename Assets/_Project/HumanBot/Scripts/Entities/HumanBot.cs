@@ -1,5 +1,5 @@
-using System;
 using _Global;
+using Character;
 using HumanBot.States;
 using Item;
 using Pathfinding;
@@ -11,6 +11,8 @@ namespace HumanBot.Entities {
         [SerializeField] private TargetFinder itemFinder;
         [SerializeField] private TargetFinder monsterFinder;
         
+        private Hide _humanBotHide;
+        
         private StateMachine _stateMachine;
         private IAstarAI _ai;
         private ItemCarrier _itemCarrier;
@@ -18,18 +20,17 @@ namespace HumanBot.Entities {
         private void Awake() {
             _ai = GetComponent<IAstarAI>();
             _itemCarrier = GetComponent<ItemCarrier>();
+            _humanBotHide = GetComponent<HumanBotHide>();
         }
 
         private void Start() {
             var wanderState = new WanderingState(_ai);
             var goToTargetState = new GoToTargetState(_ai);
-            var hideState = new HideState();
 
             _stateMachine = new StateMachine();
 
-            _stateMachine.AddTransition(wanderState, goToTargetState, ItemFound());
+            _stateMachine.AddTransition(wanderState, goToTargetState, () => itemFinder.Target);
             _stateMachine.AddTransition(goToTargetState, wanderState, () => !itemFinder.Target && !_itemCarrier.IsCarrying);
-            // _stateMachine.AddAnyTransition(hideState, MonsterFound());
             
             _stateMachine.SetState(wanderState);
             
@@ -37,16 +38,19 @@ namespace HumanBot.Entities {
                 goToTargetState.SetTarget(destination);
             };
             
-            itemFinder.OnTargetFound += item => {
+            itemFinder.OnTargetInRange += item => {
                 if (_itemCarrier.IsCarrying) return;
                 
                 goToTargetState.SetTarget(item);
             };
             
-            return;
-
-            Func<bool> ItemFound() => () => itemFinder.Target;
-            // Func<bool> MonsterFound() => () => monsterFinder.Target;
+            monsterFinder.OnNewTargetFound += _ => {
+                _humanBotHide.ToggleHiding();
+            };
+            
+            monsterFinder.OnTargetLost += () => {
+                _humanBotHide.ToggleHiding();
+            };
         }
 
         private void Update() {
