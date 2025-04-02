@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-namespace Item {
+namespace _Global {
     public class TargetFinder : MonoBehaviour {
         [SerializeField] private LayerMask targetLayerMask;
         [SerializeField] private float radius = 10f;
@@ -21,6 +21,10 @@ namespace Item {
         
         private void Start() {
             StartCoroutine(FindTarget());
+        }
+        
+        public void SetRadius(float newRadius) {
+            radius = newRadius;
         }
         
         private IEnumerator FindTarget() {

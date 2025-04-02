@@ -6,31 +6,40 @@ namespace HumanBot.States {
     public class GoToTargetState : IState {
         private GameObject _currentTarget;
         private readonly IAstarAI _ai;
-        private bool _isInState;
         
         public GoToTargetState(IAstarAI ai) {
             _ai = ai;
         }
         
         public void OnEnter() {
-            _isInState = true;
+            _ai.destination = _currentTarget.transform.position;
+            _ai.SearchPath();
         }
 
         public void Tick() {
+            if (!_ai.pathPending && (_ai.reachedEndOfPath || !_ai.hasPath)) {
+                _ai.destination = _currentTarget.transform.position;
+                _ai.SearchPath();
+            }
+            
+            if (_ai.reachedDestination) {
+                _currentTarget = null;
+            }
         }
 
         public void OnExit() {
-            _isInState = false;
             _currentTarget = null;
         }
         
+        public bool HasTarget() {
+            return _currentTarget;
+        }
+        
         public void SetTarget(GameObject target) {
-            if (!_isInState) return;
             if (!target || target == _currentTarget) return;
+            Debug.Log("Target set to: " + target.name);
             
             _currentTarget = target;
-            _ai.destination = _currentTarget.transform.position;
-            _ai.SearchPath();
         }
     }
 }

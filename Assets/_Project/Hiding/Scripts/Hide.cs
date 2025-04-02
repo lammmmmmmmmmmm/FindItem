@@ -1,7 +1,7 @@
 using DG.Tweening;
 using UnityEngine;
 
-namespace Character {
+namespace Hiding {
     public abstract class Hide : MonoBehaviour {
         private Tween _hideTween;
         private bool _isHidden;

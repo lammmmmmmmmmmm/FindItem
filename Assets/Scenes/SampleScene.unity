@@ -687,10 +687,10 @@ GameObject:
   - component: {fileID: 408186057}
   - component: {fileID: 408186056}
   - component: {fileID: 408186058}
+  - component: {fileID: 408186065}
   - component: {fileID: 408186062}
   - component: {fileID: 408186064}
   - component: {fileID: 408186063}
-  - component: {fileID: 408186065}
   m_Layer: 6
   m_Name: Human bot
   m_TagString: Untagged
@@ -730,7 +730,7 @@ MonoBehaviour:
   radius: 0.5
   height: 2
   canMove: 1
-  maxSpeed: 5
+  maxSpeed: 4
   gravity: {x: 0, y: 0, z: 0}
   groundMask:
     serializedVersion: 2
@@ -751,10 +751,10 @@ MonoBehaviour:
   rotationSpeed: 360
   slowdownDistance: 0.6
   pickNextWaypointDist: 2
-  endReachedDistance: 0.2
+  endReachedDistance: 1
   alwaysDrawGizmos: 1
   slowWhenNotFacingTarget: 1
-  whenCloseToDestination: 0
+  whenCloseToDestination: 1
   constrainInsideGraph: 0
 --- !u!114 &408186057
 MonoBehaviour:
@@ -799,6 +799,7 @@ MonoBehaviour:
   destination: {fileID: 2079573946}
   itemFinder: {fileID: 408186064}
   monsterFinder: {fileID: 408186063}
+  config: {fileID: 11400000, guid: 0a45df8b3a0264c4f9811dfd3d19e236, type: 2}
 --- !u!58 &408186060
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -926,6 +927,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edb2228b677f4413a755277aedf05117, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  config: {fileID: 11400000, guid: 0a45df8b3a0264c4f9811dfd3d19e236, type: 2}
 --- !u!1 &451407957
 GameObject:
   m_ObjectHideFlags: 0
@@ -2397,7 +2399,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf680c8e46bca3747b8d649f77a7ad99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 10
+  defaultMoveSpeed: 10
 --- !u!50 &1521725183
 Rigidbody2D:
   serializedVersion: 4

@@ -1,4 +1,6 @@
-namespace Character {
+using Character;
+
+namespace Hiding {
     public class PlayerHide : Hide {
         private PlayerMovement _playerMovement;
         
