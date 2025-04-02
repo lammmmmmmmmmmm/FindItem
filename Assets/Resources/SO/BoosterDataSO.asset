@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22a00a83a402369419c23c8c54fce279, type: 3}
+  m_Name: BoosterDataSO
+  m_EditorClassIdentifier: 
+  listBoosterData:
+  - {fileID: 11400000, guid: cbe53079b7075094185d12ae22e11dad, type: 2}
+  - {fileID: 11400000, guid: ac369affba7a7bf4ebd7ced5fb63c766, type: 2}
+  - {fileID: 11400000, guid: 179ff18d453fc374eb91138fbd10b603, type: 2}
+  - {fileID: 11400000, guid: 38a7b552bef8a814e8be2e57b50955bc, type: 2}

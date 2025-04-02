@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Survivor.UI;
 using UnityEngine;
 
-public class ImposterBase : MonoBehaviour
+public class PanelChooseRole : PanelBase
 {
 
 }
