@@ -1,0 +1,26 @@
+using Survivor.Patterns;
+
+public class GameManager : Singleton<GameManager>
+{
+    public override void OnAwake()
+    {
+        base.OnAwake();
+        DontDestroyOnLoad(gameObject);
+    }
+
+    public enum GameState : byte
+    {
+        Home,
+        Play,
+        Pause,
+        Win,
+        Lose,
+    }
+
+    public GameState state;
+
+    public void SetState(GameState state)
+    {
+        this.state = state;
+    }
+}

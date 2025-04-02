@@ -1,9 +1,12 @@
+using System;
+using _Global;
 using UnityEngine;
 
 namespace Item {
     public class ItemCarrier : MonoBehaviour {
         [SerializeField] private LayerMask itemLayer;
         public bool IsCarrying { get; private set;}
+        public Action OnItemPickedUp;
         
         private Rigidbody2D _rb;
 
@@ -17,6 +20,8 @@ namespace Item {
                 
                 _rb.excludeLayers = _rb.excludeLayers.AddLayerMasks(itemLayer);
                 Destroy(other.gameObject);
+                
+                OnItemPickedUp?.Invoke();
             }
         }
 

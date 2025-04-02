@@ -4,6 +4,7 @@ using Pathfinding;
 using Survivor.Enemy;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
+using _Global;
 
 
 namespace Survivor.Enemy
@@ -28,8 +29,8 @@ namespace Survivor.Enemy
         public void OnEnter()
         {
             _aiMovement.canMove = true;
-            _aiMovement.destination = UpdateTarget();
-            _aiMovement.SearchPath();
+            //_aiMovement.destination = UpdateTarget();
+            //_aiMovement.SearchPath();
         }
 
         public void Tick()

@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace Character {
-    public class PlayerMovement : MonoBehaviour {
+    public class PlayerMovement : MonoBehaviour, IImposter {
         [SerializeField] private float moveSpeed = 10f;
         
         private Rigidbody2D _rb;
@@ -22,11 +22,15 @@ namespace Character {
             _fogOfWall?.UpdateRotation(moveDirection);
             moveDirection *= moveSpeed;
             _rb.velocity = moveDirection;
-
         }
         
         public void SetMoveSpeed(float speed) {
             moveSpeed = speed;
+        }
+
+        public void Die()
+        {
+            Debug.Log("Player Die");
         }
     }
 }

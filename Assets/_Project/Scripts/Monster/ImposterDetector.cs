@@ -9,6 +9,7 @@ namespace Survivor.Enemy
     {
         private IImposter _targetImposter;
         public IImposter TargetImposter => _targetImposter;
+        public Transform TargetImposterTf {  get; private set; }
 
         private void OnTriggerEnter2D(Collider2D other)
         {
@@ -18,6 +19,7 @@ namespace Survivor.Enemy
             if (other.TryGetComponent<IImposter>(out var imposter))
             {
                 _targetImposter = imposter;
+                TargetImposterTf = other.transform;
             }
         }
 
@@ -32,9 +34,15 @@ namespace Survivor.Enemy
             }
         }
 
+        public float TargetDistance()
+        {
+            return Vector2.Distance(transform.position, TargetImposterTf.position);
+        }
+
         private void RemoveCharacterTarget()
         {
             _targetImposter = null;
+            TargetImposterTf = null;
         }
     }
 }

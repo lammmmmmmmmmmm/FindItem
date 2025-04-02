@@ -2,7 +2,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Pathfinding;
+using TMPro;
 using UnityEngine;
+using _Global;
 
 
 namespace Survivor.Enemy
@@ -13,28 +15,45 @@ namespace Survivor.Enemy
         private ImposterDetector _detector;
         private AIPath _aiMovement;
 
+        private float attackRange = 0.8f;
+
         private void Awake ()
         {
             _stateMachine = new StateMachine();
             _detector = GetComponentInChildren<ImposterDetector>();
             _aiMovement = GetComponent<AIPath>();
 
-            var idle = new MonsterIdleState(this);
             var run = new MonsterRunState(this, _aiMovement);
-            var attack = new MonsterAttackState(this, _detector, _aiMovement);
+            var follow = new MonsterFollowState(this, _aiMovement, _detector);
+            var attack = new MonsterAttackState(this, _aiMovement, _detector);
 
-            _stateMachine.AddAnyTransition(attack, () => _detector.TargetImposter != null);
+            _stateMachine.AddAnyTransition(run, () => _detector.TargetImposter == null);
 
-            AddTransition(idle, run, HasTarget());
-            AddTransition(run, attack, HasTarget());
-            AddTransition(attack, run, NotHasTarget());
+            AddTransition(run, follow, HasTarget());
+            AddTransition(attack, follow, CanNotAttackTarget());
+            AddTransition(follow, attack, CanAttackTarget());
 
             _stateMachine.SetState(run);
 
             void AddTransition(IState to, IState from, Func<bool> condition) => _stateMachine.AddTransition(to, from, condition);
 
-            Func<bool> HasTarget() => () =>  _detector.TargetImposter != null;
+            Func<bool> HasTarget() => () => _detector.TargetImposter != null;
             Func<bool> NotHasTarget() => () => _detector.TargetImposter == null;
+            Func<bool> CanAttackTarget() => () =>
+            {
+                if (_detector.TargetImposter == null)
+                    return false;
+
+                return _detector.TargetDistance() < attackRange;
+            };
+
+            Func<bool> CanNotAttackTarget() => () =>
+            {
+                if (_detector.TargetImposter == null)
+                    return false;
+
+                return _detector.TargetDistance() > attackRange;
+            };
         }
 
 

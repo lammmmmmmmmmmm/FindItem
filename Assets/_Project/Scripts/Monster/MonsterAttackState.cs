@@ -2,6 +2,7 @@ using DG.Tweening;
 using Pathfinding;
 using Survivor.Enemy;
 using UnityEngine;
+using _Global;
 
 public class MonsterAttackState : IState
 {
@@ -12,7 +13,7 @@ public class MonsterAttackState : IState
 
     private bool isAttacking;
 
-    public MonsterAttackState(MonsterController monsterController, ImposterDetector detector, IAstarAI aiMovement)
+    public MonsterAttackState(MonsterController monsterController, IAstarAI aiMovement, ImposterDetector detector)
     {
         _monsterController = monsterController;
         _detector = detector;
