@@ -25,7 +25,7 @@ namespace Bot.Entities.Monster {
         }
 
         public void OnExit() {
-            Debug.Log($"Exit state: Attack");
+            Debug.Log("Exit state: Attack");
             _aiMovement.isStopped = false;
         }
 
@@ -33,9 +33,10 @@ namespace Bot.Entities.Monster {
         }
 
         private void Attack() {
-            //TODO: Anim Attack
-            _monsterBotController.transform.DOScale(Vector2.one * 1.1f, 0.05f).SetLoops(4, LoopType.Yoyo);
-            _targetDie.Die();
+            _monsterBotController.transform.DOScale(Vector2.one * 2f, 0.1f).SetLoops(4, LoopType.Yoyo).OnComplete(() => {
+                var dir = _humanFinder.Target.position - _monsterBotController.transform.position;
+                _targetDie.Die(_monsterBotController.transform.position + dir.normalized);
+            });
         }
     }
 }

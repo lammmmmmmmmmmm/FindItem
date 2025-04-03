@@ -1,5 +1,7 @@
+using UnityEngine;
+
 namespace Bot {
     public interface IDie {
-        public void Die();
+        public void Die(Vector3 position);
     }
 }

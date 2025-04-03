@@ -1,6 +1,8 @@
+using System;
 using _Global;
 using _Global.Utils;
 using Bot.States;
+using DG.Tweening;
 using Hiding;
 using Item;
 using Pathfinding;
@@ -15,6 +17,8 @@ namespace Bot.Entities {
 
         private Hide _humanBotHide;
 
+        private bool _goToItem;
+        
         private StateMachine _stateMachine;
         private IAstarAI _ai;
         private ItemCarrier _itemCarrier;
@@ -33,41 +37,46 @@ namespace Bot.Entities {
             monsterFinder.SetRadius(config.MonsterDetectionRange);
 
             var wanderState = new WanderingState(_ai);
-            var goToTargetState = new GoToTargetState(_ai);
+            var goToItemState = new GoToTargetState(_ai, itemFinder);
+            var goToGoalState = new GoToTargetState(_ai, destination.transform);
 
-            _stateMachine.AddTransition(wanderState, goToTargetState, () => goToTargetState.HasTarget());
-            _stateMachine.AddTransition(goToTargetState, wanderState,
-                () => !goToTargetState.HasTarget() && !_itemCarrier.IsCarrying);
+            _stateMachine.AddTransition(goToItemState, goToGoalState, () => _itemCarrier.IsCarrying);
+            
+            _stateMachine.AddAnyTransition(wanderState, () => !_goToItem || !itemFinder.Target && !_itemCarrier.IsCarrying);
+            _stateMachine.AddAnyTransition(goToItemState, ShouldGoToItem());
 
             _stateMachine.SetState(wanderState);
 
-            _itemCarrier.OnItemPickedUp += () => { goToTargetState.SetTarget(destination); };
-
-            itemFinder.OnTargetInRange += item => {
-                if (_itemCarrier.IsCarrying) return;
-
-                if (MathUtils.RandomChance(config.PickUpChance)) {
-                    goToTargetState.SetTarget(item);
-                }
+            itemFinder.OnTargetInRange += _ => {
+                _goToItem = MathUtils.RandomChance(config.PickUpChance);
+            };
+            _itemCarrier.OnItemPickedUp += () => {
+                _goToItem = false;
             };
 
             //TODO: hiding is not working properly
-            monsterFinder.OnNewTargetFound += _ => {
-                if (MathUtils.RandomChance(config.HideChance)) {
-                    _humanBotHide.ToggleHiding();
-                }
-            };
-
-            monsterFinder.OnTargetLost += () => { _humanBotHide.ToggleHiding(); };
+            // monsterFinder.OnNewTargetFound += _ => {
+            //     if (MathUtils.RandomChance(config.HideChance)) {
+            //         _humanBotHide.ToggleHiding();
+            //     }
+            // };
+            //
+            // monsterFinder.OnTargetLost += () => { _humanBotHide.ToggleHiding(); };
+            
+            return;
+            
+            Func<bool> ShouldGoToItem() => () => itemFinder.Target && _goToItem && !_itemCarrier.IsCarrying;
         }
 
         private void Update() {
             _stateMachine.Tick();
         }
 
-        public void Die() {
-            Debug.Log("Die");
-            Destroy(gameObject);
+        public void Die(Vector3 position) {
+            _ai.isStopped = true;
+            transform.position = position;
+            
+            DOVirtual.DelayedCall(0.5f, () => { Destroy(gameObject); });
         }
     }
 }

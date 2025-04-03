@@ -15,3 +15,4 @@ MonoBehaviour:
   chaseChance: 1
   wanderingSpeed: 4
   humanDetectionRange: 8
+  attackRange: 3

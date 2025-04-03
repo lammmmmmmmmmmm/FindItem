@@ -11,8 +11,8 @@ namespace Bot.Entities.Monster {
 
         private StateMachine _stateMachine;
         private AIPath _aiMovement;
-
-        private const float ATTACK_RANGE = 0.8f;
+        
+        private bool _shouldChase;
 
         private void Awake() {
             _stateMachine = new StateMachine();
@@ -24,34 +24,27 @@ namespace Bot.Entities.Monster {
             humanFinder.SetRadius(config.HumanDetectionRange);
 
             var wanderState = new WanderingState(_aiMovement);
-            var chaseState = new GoToTargetState(_aiMovement);
+            var chaseState = new GoToTargetState(_aiMovement, humanFinder);
             var attackState = new MonsterAttackState(this, _aiMovement, humanFinder);
 
-            _stateMachine.AddAnyTransition(wanderState, () => !chaseState.HasTarget());
+            _stateMachine.AddAnyTransition(wanderState, () => !humanFinder.Target);
 
-            _stateMachine.AddTransition(wanderState, chaseState, () => chaseState.HasTarget());
-            _stateMachine.AddTransition(attackState, chaseState, () => chaseState.HasTarget() && TargetIsInRange());
-            _stateMachine.AddTransition(chaseState, attackState, TargetIsInRange);
+            _stateMachine.AddTransition(wanderState, chaseState, () => humanFinder.Target && _shouldChase);
+            _stateMachine.AddTransition(chaseState, attackState, () => humanFinder.Target && TargetIsInAttackRange());
 
             _stateMachine.SetState(wanderState);
-
-            humanFinder.OnTargetInRange += human => {
-                if (MathUtils.RandomChance(config.ChaseChance)) {
-                    chaseState.SetTarget(human);
-                }
-            };
             
+            humanFinder.OnTargetInRange += _ => {
+                _shouldChase = MathUtils.RandomChance(config.ChaseChance);
+            };
             humanFinder.OnTargetLost += () => {
-                chaseState.SetTarget(null);
+                _shouldChase = false;
             };
-            
+
             return;
 
-            bool TargetIsInRange() {
-                if (!humanFinder.Target) return false;
-                
-                return Vector2.Distance(transform.position, humanFinder.Target.transform.position) <
-                       ATTACK_RANGE;
+            bool TargetIsInAttackRange() {
+                return Vector2.Distance(transform.position, humanFinder.Target.transform.position) < config.AttackRange;
             }
         }
 

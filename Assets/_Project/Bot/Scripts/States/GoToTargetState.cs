@@ -4,36 +4,36 @@ using UnityEngine;
 
 namespace Bot.States {
     public class GoToTargetState : IState {
-        private GameObject _currentTarget;
         private readonly IAstarAI _ai;
+        private readonly TargetFinder _targetFinder;
+        private readonly Transform _target;
+        
+        private Transform _currentTarget;
 
-        public GoToTargetState(IAstarAI ai) {
+        public GoToTargetState(IAstarAI ai, TargetFinder targetFinder) {
             _ai = ai;
+            _targetFinder = targetFinder;
         }
 
+        public GoToTargetState(IAstarAI ai, Transform target) {
+            _ai = ai;
+            _target = target;
+        }   
+
         public void OnEnter() {
-            _ai.destination = _currentTarget.transform.position;
+            _currentTarget = _targetFinder ? _targetFinder.Target : _target;
+            
+            _ai.destination = _currentTarget.position;
             _ai.SearchPath();
+            
+            Debug.Log("Change to GoToTarget");
         }
 
         public void Tick() {
-            _ai.destination = _currentTarget.transform.position;
-
-            if (_ai.reachedDestination) {
-                _currentTarget = null;
-            }
+            _ai.destination = _currentTarget.position;
         }
 
         public void OnExit() {
-            _currentTarget = null;
-        }
-
-        public bool HasTarget() {
-            return _currentTarget;
-        }
-
-        public void SetTarget(GameObject target) {
-            _currentTarget = target;
         }
     }
 }

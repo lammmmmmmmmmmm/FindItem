@@ -14,6 +14,8 @@ namespace Bot.States {
         public void OnEnter() {
             _ai.destination = PickRandomPoint();
             _ai.SearchPath();
+            
+            Debug.Log("Change to Wandering");
         }
 
         public void Tick() {
