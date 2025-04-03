@@ -1,4 +1,3 @@
-using _Global;
 using _Global.ExtensionMethods;
 using UnityEngine;
 using UnityEngine.Events;
@@ -35,6 +34,7 @@ namespace Item {
                 _isTaken[i] = true;
                 spots[i].SetActive(true);
                 
+                //TODO: add event when player unloads item
                 onItemUnloadedEvent.Invoke();
                 
                 return;
