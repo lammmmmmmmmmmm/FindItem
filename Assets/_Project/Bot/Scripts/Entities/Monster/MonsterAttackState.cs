@@ -9,6 +9,7 @@ namespace Bot.Entities.Monster {
         private readonly TargetFinder _humanFinder;
         private readonly IAstarAI _aiMovement;
         private IDie _targetDie;
+        private Transform _chosenTarget;
 
         public MonsterAttackState(MonsterBotController monsterBotController, IAstarAI aiMovement, TargetFinder humanFinder) {
             _monsterBotController = monsterBotController;
@@ -19,6 +20,7 @@ namespace Bot.Entities.Monster {
         public void OnEnter() {
             _aiMovement.isStopped = true;
             _targetDie = _humanFinder.Target.GetComponent<IDie>();
+            _chosenTarget = _humanFinder.Target.transform;
             
             Attack();
         }
@@ -32,7 +34,10 @@ namespace Bot.Entities.Monster {
 
         private void Attack() {
             _monsterBotController.transform.DOScale(Vector2.one * 2f, 0.1f).SetLoops(4, LoopType.Yoyo).OnComplete(() => {
-                var dir = _humanFinder.Target.position - _monsterBotController.transform.position;
+                // target could be killed by other monster before the animation is done
+                if (!_chosenTarget) return;
+                
+                var dir = _chosenTarget.position - _monsterBotController.transform.position;
                 _targetDie.Die(_monsterBotController.transform.position + dir.normalized);
             });
         }

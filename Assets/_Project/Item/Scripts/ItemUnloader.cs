@@ -1,9 +1,10 @@
 using _Global.ExtensionMethods;
+using Survivor.Patterns;
 using UnityEngine;
 using UnityEngine.Events;
 
 namespace Item {
-    public class ItemUnloader : MonoBehaviour {
+    public class ItemUnloader : Singleton<ItemUnloader> {
         [SerializeField] private LayerMask humanLayerMask;
         [SerializeField] private GameObject[] spots;
         

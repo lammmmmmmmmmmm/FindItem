@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec25acfeb36b48278d0ff09b7e1d94d4, type: 3}
   m_Name: Human Bot Config SO
   m_EditorClassIdentifier: 
-  pickUpChance: 0.5
+  pickUpChance: 1
   hideChance: 0.5
   wanderingSpeed: 4
   itemDetectionRange: 10

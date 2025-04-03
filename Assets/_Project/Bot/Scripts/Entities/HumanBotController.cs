@@ -10,7 +10,6 @@ using UnityEngine;
 
 namespace Bot.Entities {
     public class HumanBotController : MonoBehaviour, IDie {
-        [SerializeField] private GameObject destination;
         [SerializeField] private TargetFinder itemFinder;
         [SerializeField] private TargetFinder monsterFinder;
         [SerializeField] private HumanBotConfig config;
@@ -38,7 +37,7 @@ namespace Bot.Entities {
 
             var wanderState = new WanderingState(_ai);
             var goToItemState = new GoToTargetState(_ai, itemFinder);
-            var goToGoalState = new GoToTargetState(_ai, destination.transform);
+            var goToGoalState = new GoToTargetState(_ai, ItemUnloader.Instance.transform);
 
             _stateMachine.AddAnyTransition(goToGoalState, () => _itemCarrier.IsCarrying);
             _stateMachine.AddAnyTransition(wanderState,
@@ -75,7 +74,7 @@ namespace Bot.Entities {
             _ai.isStopped = true;
             transform.position = position;
 
-            DOVirtual.DelayedCall(0.5f, () => { Destroy(gameObject); });
+            DOVirtual.DelayedCall(0.5f, () => { Destroy(gameObject); }).SetLink(gameObject);
         }
     }
 }
