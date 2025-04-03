@@ -3,6 +3,8 @@ using UnityEngine;
 
 namespace Hiding {
     public abstract class Hide : MonoBehaviour {
+        [SerializeField] private LayerMask humanHidingLayer;
+        [SerializeField] private LayerMask humanLayer;
         private Tween _hideTween;
         private bool _isHidden;
         
@@ -19,32 +21,34 @@ namespace Hiding {
             }
         }
 
-        private void StartHiding() {
-            DisableMovement();
-
+        public void StartHiding() {
+            EnableMovement(0.5f);
+            
             _hideTween = DOVirtual.DelayedCall(HIDE_DURATION, () => {
-                //TODO: hide player from monster
-
-                EnableMovement(0.5f);
+                //TODO: find a better way to hide human from monster
+                int layerIndex = Mathf.RoundToInt(Mathf.Log(humanHidingLayer.value, 2));
+                gameObject.layer = layerIndex;
 
                 _isHidden = true;
             }).SetLink(gameObject);
         }
 
-        private void StopHiding() {
+        public void StopHiding() {
             _hideTween = DOVirtual.DelayedCall(HIDE_DURATION, () => {
-                //TODO: reveal player to monster
+                int layerIndex = Mathf.RoundToInt(Mathf.Log(humanLayer.value, 2));
+                gameObject.layer = layerIndex;
 
                 EnableMovement(1f);
 
                 _isHidden = false;
             }).SetLink(gameObject);
         }
-        
-        protected abstract void DisableMovement();
+
         protected abstract void EnableMovement(float speedMultiplier);
         
         public void CancelHiding() {
+            EnableMovement(1f);
+            
             if (_hideTween == null) return;
             _hideTween.Kill();
             _hideTween = null;

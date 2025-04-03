@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace _Global {
+namespace _Global.ExtensionMethods {
     public static class LayerMaskExtension {
         public static bool Contains(this LayerMask mask, int layer) {
             return mask == (mask | (1 << layer));

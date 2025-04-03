@@ -9,11 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec25acfeb36b48278d0ff09b7e1d94d4, type: 3}
-  m_Name: Human Bot Config
+  m_Script: {fileID: 11500000, guid: 871981b72d754b21853258b379629765, type: 3}
+  m_Name: Monster Bot Config SO
   m_EditorClassIdentifier: 
-  pickUpChance: 0.5
-  hideChance: 0.5
+  chaseChance: 1
   wanderingSpeed: 4
-  itemDetectionRange: 10
-  monsterDetectionRange: 5
+  humanDetectionRange: 8
+  attackRange: 3

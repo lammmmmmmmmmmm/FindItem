@@ -2,43 +2,36 @@ using _Global;
 using Pathfinding;
 using UnityEngine;
 
-namespace HumanBot.States {
+namespace Bot.States {
     public class GoToTargetState : IState {
-        private GameObject _currentTarget;
         private readonly IAstarAI _ai;
+        private readonly TargetFinder _targetFinder;
+        private readonly Transform _target;
         
-        public GoToTargetState(IAstarAI ai) {
+        private Transform _currentTarget;
+
+        public GoToTargetState(IAstarAI ai, TargetFinder targetFinder) {
             _ai = ai;
+            _targetFinder = targetFinder;
         }
-        
+
+        public GoToTargetState(IAstarAI ai, Transform target) {
+            _ai = ai;
+            _target = target;
+        }   
+
         public void OnEnter() {
-            _ai.destination = _currentTarget.transform.position;
+            _currentTarget = _targetFinder ? _targetFinder.Target : _target;
+            
+            _ai.destination = _currentTarget.position;
             _ai.SearchPath();
         }
 
         public void Tick() {
-            if (!_ai.pathPending && (_ai.reachedEndOfPath || !_ai.hasPath)) {
-                _ai.destination = _currentTarget.transform.position;
-                _ai.SearchPath();
-            }
-            
-            if (_ai.reachedDestination) {
-                _currentTarget = null;
-            }
+            _ai.destination = _currentTarget.position;
         }
 
         public void OnExit() {
-            _currentTarget = null;
-        }
-        
-        public bool HasTarget() {
-            return _currentTarget;
-        }
-        
-        public void SetTarget(GameObject target) {
-            if (!target || target == _currentTarget) return;
-            
-            _currentTarget = target;
         }
     }
 }

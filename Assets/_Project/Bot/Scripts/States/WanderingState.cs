@@ -2,7 +2,7 @@ using _Global;
 using Pathfinding;
 using UnityEngine;
 
-namespace HumanBot.States {
+namespace Bot.States {
     public class WanderingState : IState {
         private const float WANDERING_RADIUS = 20;
         private readonly IAstarAI _ai;

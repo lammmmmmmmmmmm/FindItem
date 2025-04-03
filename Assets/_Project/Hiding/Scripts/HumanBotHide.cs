@@ -1,4 +1,4 @@
-using HumanBot;
+using Bot.Entities;
 using Pathfinding;
 using UnityEngine;
 
@@ -10,12 +10,6 @@ namespace Hiding {
         
         private void Awake() {
             _ai = GetComponent<IAstarAI>();
-        }
-        
-        protected override void DisableMovement() {
-            if (_ai != null) {
-                _ai.isStopped = true;
-            }
         }
 
         protected override void EnableMovement(float speedMultiplier) {
