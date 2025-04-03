@@ -2851,7 +2851,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1910575744424241705}
   - component: {fileID: 8995211368429703422}
-  - component: {fileID: 3539278698495384593}
+  - component: {fileID: 8282895517812658264}
   m_Layer: 5
   m_Name: PanelChooseBooster
   m_TagString: Untagged
@@ -2892,7 +2892,7 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
---- !u!114 &3539278698495384593
+--- !u!114 &8282895517812658264
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2901,7 +2901,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6799899911349194631}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81fccd9b67c76b34c8945beefdbcf341, type: 3}
+  m_Script: {fileID: 11500000, guid: 30ed765639be85542afcd68f0e9e207d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   listOpenTween: []
