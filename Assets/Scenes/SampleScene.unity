@@ -808,6 +808,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edb2228b677f4413a755277aedf05117, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  humanHidingLayer:
+    serializedVersion: 2
+    m_Bits: 512
+  humanLayer:
+    serializedVersion: 2
+    m_Bits: 64
   config: {fileID: 11400000, guid: 0a45df8b3a0264c4f9811dfd3d19e236, type: 2}
 --- !u!114 &408186066
 MonoBehaviour:
@@ -2177,57 +2183,6 @@ MonoBehaviour:
     m_Interactions: 
     m_SingletonActionBindings: []
     m_Flags: 0
---- !u!1 &1337472476
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1337472477}
-  - component: {fileID: 1337472478}
-  m_Layer: 0
-  m_Name: Item Indicator
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1337472477
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1337472476}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1337472478
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1337472476}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f7add4f87c743869edbb9f421e21f06, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemLayerMask:
-    serializedVersion: 2
-    m_Bits: 8
-  detectionRadius: 10
-  numberOfItems: 5
-  delayTimeInSeconds: 5
-  indicatorPrefab: {fileID: 7730744250363868971, guid: 20f54a4034159fc479c693c5af0c66f6, type: 3}
 --- !u!1 &1513663616
 GameObject:
   m_ObjectHideFlags: 0
@@ -2346,6 +2301,7 @@ GameObject:
   - component: {fileID: 1521725182}
   - component: {fileID: 1521725185}
   - component: {fileID: 1521725186}
+  - component: {fileID: 1521725187}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -2527,6 +2483,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b5207a27c354aa5b7b494d9f0feddc8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  humanHidingLayer:
+    serializedVersion: 2
+    m_Bits: 512
+  humanLayer:
+    serializedVersion: 2
+    m_Bits: 64
+--- !u!114 &1521725187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1521725176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f7add4f87c743869edbb9f421e21f06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemLayerMask:
+    serializedVersion: 2
+    m_Bits: 8
+  detectionRadius: 10
+  numberOfItems: 5
+  delayTimeInSeconds: 5
+  indicatorPrefab: {fileID: 7730744250363868971, guid: 20f54a4034159fc479c693c5af0c66f6, type: 3}
 --- !u!1 &1570862229
 GameObject:
   m_ObjectHideFlags: 0
@@ -2537,7 +2518,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1570862230}
   m_Layer: 0
-  m_Name: ----Item----
+  m_Name: ----Item Unloader----
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2661,7 +2642,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1337472478}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Indicator.ItemIndicator, Assembly-CSharp
         m_MethodName: CancelDelayFindItems
         m_Mode: 1
@@ -2717,7 +2698,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1337472478}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Indicator.ItemIndicator, Assembly-CSharp
         m_MethodName: DelayFindItems
         m_Mode: 1
@@ -3729,7 +3710,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   humanLayerMask:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 576
   spots:
   - {fileID: 299910176}
   - {fileID: 451407957}
@@ -3775,7 +3756,6 @@ SceneRoots:
   - {fileID: 1763953389}
   - {fileID: 897324093}
   - {fileID: 376434245}
-  - {fileID: 1337472477}
   - {fileID: 1727912205}
   - {fileID: 830512793}
   - {fileID: 408186055}

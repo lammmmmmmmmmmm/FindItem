@@ -7,12 +7,6 @@ namespace Hiding {
         private void Awake() {
             _playerMovement = GetComponent<PlayerMovement>();
         }
-        
-        protected override void DisableMovement() {
-            if (!_playerMovement) {
-                _playerMovement.enabled = false;
-            }
-        }
 
         protected override void EnableMovement(float speedMultiplier) {
             if (_playerMovement) {
