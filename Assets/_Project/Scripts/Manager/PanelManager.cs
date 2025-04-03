@@ -12,14 +12,14 @@ public class PanelManager : Singleton<PanelManager>
     private Dictionary<string, GameObject> cachedPanel = new Dictionary<string, GameObject>();
     private List<PanelBase> listPanelRelease = new List<PanelBase>();
 
-    public override void OnAwake()
+    protected override void OnAwake()
     {
         base.OnAwake();
         if (container == null)
             container = transform;
     }
 
-    public T OpenPanel<T>(PanelData panelData) where T : PanelBase
+    public T OpenPanel<T>(PanelData panelData = null) where T : PanelBase
     {
         T panel = OpenPanel<T>(typeof(T).Name);
 
@@ -50,6 +50,11 @@ public class PanelManager : Singleton<PanelManager>
         Instantiate(panelObject, container);
 
         return panelObject.GetComponent<T>();
+    }
+
+    public void OpenPanel(string name, PanelData panelData = null)
+    {
+        OpenPanel<PanelBase>(name);
     }
 
     public void ClosePanel(PanelBase panel)

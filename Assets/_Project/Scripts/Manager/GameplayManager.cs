@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using Survivor.Patterns;
-using UnityEngine;
 
 public class GameplayManager : Singleton<GameplayManager>
 {
@@ -14,4 +11,6 @@ public class GameplayManager : Singleton<GameplayManager>
         Battle,
         MysteryNight,
     }
+
+    private GameMode _currentGameMode;
 }

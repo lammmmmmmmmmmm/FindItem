@@ -42,7 +42,7 @@ namespace Survivor.Patterns
         /// <summary>
         /// Awake Method override for Singleton
         /// </summary>
-        public virtual void OnAwake()
+        protected virtual void OnAwake()
         {
 
         }

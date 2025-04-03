@@ -2,7 +2,7 @@ using Survivor.Patterns;
 
 public class GameManager : Singleton<GameManager>
 {
-    public override void OnAwake()
+    protected override void OnAwake()
     {
         base.OnAwake();
         DontDestroyOnLoad(gameObject);

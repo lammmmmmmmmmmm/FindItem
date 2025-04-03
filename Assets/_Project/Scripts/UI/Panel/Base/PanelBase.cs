@@ -13,6 +13,16 @@ namespace Survivor.UI
         public List<TweenData> listOpenTween = new List<TweenData>();
         public List<TweenData> listCloseTween = new List<TweenData>();
 
+        private void Start()
+        {
+            Setup();
+        }
+
+        protected virtual void Setup()
+        {
+
+        }
+
         public virtual void Open(PanelData panelData)
         {
             _panelData = panelData;
