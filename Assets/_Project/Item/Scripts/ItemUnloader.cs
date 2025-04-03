@@ -1,10 +1,13 @@
 using _Global;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Item {
     public class ItemUnloader : MonoBehaviour {
         [SerializeField] private LayerMask humanLayerMask;
         [SerializeField] private GameObject[] spots;
+        
+        public UnityEvent onItemUnloadedEvent;
 
         private bool[] _isTaken;
 
@@ -30,6 +33,8 @@ namespace Item {
                     
                 _isTaken[i] = true;
                 spots[i].SetActive(true);
+                
+                onItemUnloadedEvent.Invoke();
                 
                 return;
             }
