@@ -826,7 +826,7 @@ MonoBehaviour:
     m_Bits: 8
   radius: 10
   showGizmos: 1
-  radiusColor: {r: 1, g: 0, b: 0, a: 1}
+  radiusColor: {r: 1, g: 0.7202713, b: 0, a: 1}
   lineColor: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &408186067
 MonoBehaviour:
@@ -843,9 +843,9 @@ MonoBehaviour:
   targetLayerMask:
     serializedVersion: 2
     m_Bits: 128
-  radius: 10
+  radius: 5
   showGizmos: 1
-  radiusColor: {r: 1, g: 0, b: 0, a: 1}
+  radiusColor: {r: 0, g: 0.33128214, b: 1, a: 1}
   lineColor: {r: 0, g: 1, b: 0, a: 1}
 --- !u!1 &451407957
 GameObject:
@@ -2606,10 +2606,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5260541737434676252, guid: 24789686df77e504487dd166ab4afadf, type: 3}
-      propertyPath: m_Radius
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 9154167995461112708, guid: 24789686df77e504487dd166ab4afadf, type: 3}
       propertyPath: m_Name
       value: Monster
@@ -3646,9 +3642,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2079573947}
-  - component: {fileID: 2079573948}
-  - component: {fileID: 2079573949}
   - component: {fileID: 2079573950}
+  - component: {fileID: 2079573949}
   m_Layer: 0
   m_Name: Item Unloader
   m_TagString: Untagged
@@ -3675,25 +3670,6 @@ Transform:
   - {fileID: 1091224058}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2079573948
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2079573946}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06cc8ec6d1e44a46b95b77d3cab533f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  humanLayerMask:
-    serializedVersion: 2
-    m_Bits: 0
-  spots: []
-  onItemUnloadedEvent:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!61 &2079573949
 BoxCollider2D:
   m_ObjectHideFlags: 0

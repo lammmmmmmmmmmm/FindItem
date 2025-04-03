@@ -1,13 +1,13 @@
 using _Global;
+using _Global.Utils;
+using Bot.States;
 using Hiding;
-using HumanBot;
-using HumanBot.States;
 using Item;
 using Pathfinding;
 using UnityEngine;
 
 namespace Bot.Entities {
-    public class HumanBot : MonoBehaviour, IImposter {
+    public class HumanBotController : MonoBehaviour, IDie {
         [SerializeField] private GameObject destination;
         [SerializeField] private TargetFinder itemFinder;
         [SerializeField] private TargetFinder monsterFinder;
@@ -46,13 +46,14 @@ namespace Bot.Entities {
             itemFinder.OnTargetInRange += item => {
                 if (_itemCarrier.IsCarrying) return;
 
-                if (RandomChance(config.PickUpChance)) {
+                if (MathUtils.RandomChance(config.PickUpChance)) {
                     goToTargetState.SetTarget(item);
                 }
             };
 
+            //TODO: hiding is not working properly
             monsterFinder.OnNewTargetFound += _ => {
-                if (RandomChance(config.HideChance)) {
+                if (MathUtils.RandomChance(config.HideChance)) {
                     _humanBotHide.ToggleHiding();
                 }
             };
@@ -62,10 +63,6 @@ namespace Bot.Entities {
 
         private void Update() {
             _stateMachine.Tick();
-        }
-
-        private bool RandomChance(float chance) {
-            return Random.Range(0f, 1f) < chance;
         }
 
         public void Die() {

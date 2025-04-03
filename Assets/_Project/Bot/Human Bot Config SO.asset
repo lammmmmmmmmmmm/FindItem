@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ec25acfeb36b48278d0ff09b7e1d94d4, type: 3}
-  m_Name: Human Bot Config
+  m_Name: Human Bot Config SO
   m_EditorClassIdentifier: 
   pickUpChance: 0.5
   hideChance: 0.5

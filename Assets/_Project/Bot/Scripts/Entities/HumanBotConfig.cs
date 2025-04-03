@@ -1,11 +1,15 @@
 using UnityEngine;
 
-namespace HumanBot {
-    [CreateAssetMenu(menuName = "Human Bot Config")]
+namespace Bot.Entities {
+    [CreateAssetMenu(menuName = "Human Bot Config SO")]
     public class HumanBotConfig : ScriptableObject {
+        [Range(0, 1)]
         [SerializeField] private float pickUpChance = 0.5f;
+        [Range(0, 1)]
         [SerializeField] private float hideChance = 0.5f;
+        
         [SerializeField] private float wanderingSpeed = 1f;
+        
         [SerializeField] private float itemDetectionRange = 10f;
         [SerializeField] private float monsterDetectionRange = 5f;
         

@@ -1,4 +1,4 @@
-using HumanBot;
+using Bot.Entities;
 using Pathfinding;
 using UnityEngine;
 
