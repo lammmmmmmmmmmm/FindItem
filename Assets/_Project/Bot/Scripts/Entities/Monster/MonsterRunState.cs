@@ -1,13 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
-using Pathfinding;
-using Survivor.Enemy;
-using UnityEngine;
-using UnityEngine.PlayerLoop;
 using _Global;
+using Pathfinding;
+using UnityEngine;
 
-
-namespace Survivor.Enemy
+namespace Bot.Entities.Monster
 {
     public class MonsterRunState : IState
     {
