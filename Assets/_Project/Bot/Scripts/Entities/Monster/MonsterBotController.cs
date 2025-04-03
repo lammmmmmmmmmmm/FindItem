@@ -11,7 +11,7 @@ namespace Bot.Entities.Monster {
 
         private StateMachine _stateMachine;
         private AIPath _aiMovement;
-        
+
         private bool _shouldChase;
 
         private void Awake() {
@@ -33,13 +33,9 @@ namespace Bot.Entities.Monster {
             _stateMachine.AddTransition(chaseState, attackState, () => humanFinder.Target && TargetIsInAttackRange());
 
             _stateMachine.SetState(wanderState);
-            
-            humanFinder.OnTargetInRange += _ => {
-                _shouldChase = MathUtils.RandomChance(config.ChaseChance);
-            };
-            humanFinder.OnTargetLost += () => {
-                _shouldChase = false;
-            };
+
+            humanFinder.OnTargetInRange += _ => { _shouldChase = MathUtils.RandomChance(config.ChaseChance); };
+            humanFinder.OnTargetLost += () => { _shouldChase = false; };
 
             return;
 

@@ -25,8 +25,6 @@ namespace Bot.States {
             
             _ai.destination = _currentTarget.position;
             _ai.SearchPath();
-            
-            Debug.Log("Change to GoToTarget");
         }
 
         public void Tick() {

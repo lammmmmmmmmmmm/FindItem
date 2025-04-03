@@ -21,11 +21,9 @@ namespace Bot.Entities.Monster {
             _targetDie = _humanFinder.Target.GetComponent<IDie>();
             
             Attack();
-            Debug.Log("Change to Attack");
         }
 
         public void OnExit() {
-            Debug.Log("Exit state: Attack");
             _aiMovement.isStopped = false;
         }
 

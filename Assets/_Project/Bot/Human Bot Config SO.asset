@@ -16,4 +16,4 @@ MonoBehaviour:
   hideChance: 0.5
   wanderingSpeed: 4
   itemDetectionRange: 10
-  monsterDetectionRange: 5
+  monsterDetectionRange: 6

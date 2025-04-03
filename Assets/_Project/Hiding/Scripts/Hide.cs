@@ -21,7 +21,7 @@ namespace Hiding {
             }
         }
 
-        private void StartHiding() {
+        public void StartHiding() {
             EnableMovement(0.5f);
             
             _hideTween = DOVirtual.DelayedCall(HIDE_DURATION, () => {
@@ -33,7 +33,7 @@ namespace Hiding {
             }).SetLink(gameObject);
         }
 
-        private void StopHiding() {
+        public void StopHiding() {
             _hideTween = DOVirtual.DelayedCall(HIDE_DURATION, () => {
                 int layerIndex = Mathf.RoundToInt(Mathf.Log(humanLayer.value, 2));
                 gameObject.layer = layerIndex;
