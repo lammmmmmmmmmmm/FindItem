@@ -6,15 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/LoadingScene.unity
-    guid: 338c5eaf8fbd69641a66802cded35cb4
-  - enabled: 1
-    path: Assets/Scenes/HomeScene.unity
-    guid: eea1e3957c8a91e408599857a7595072
-  - enabled: 1
-    path: Assets/Scenes/FindTheBlock.unity
-    guid: 11212271f9be876499a7d4e7f1f9c933
-  - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
+    path: Assets/Scenes/Base Gameplay.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
   m_configObjects: {}

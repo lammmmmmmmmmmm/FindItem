@@ -7,43 +7,52 @@ using UnityEngine;
 namespace Bot.Entities.Monster {
     public class MonsterBotController : MonoBehaviour {
         [SerializeField] private TargetFinder humanFinder;
-        [SerializeField] private MonsterBotConfigSO config;
-
+        
+        private MonsterBotConfigSO _config;
         private StateMachine _stateMachine;
-        private AIPath _aiMovement;
+        private AIPath _ai;
 
         private bool _shouldChase;
 
         private void Awake() {
             _stateMachine = new StateMachine();
-            _aiMovement = GetComponent<AIPath>();
+            _ai = GetComponent<AIPath>();
         }
 
         private void Start() {
-            _aiMovement.maxSpeed = config.WanderingSpeed;
-            humanFinder.SetRadius(config.HumanDetectionRange);
+            _ai.maxSpeed = _config.WanderingSpeed;
+            humanFinder.SetRadius(_config.HumanDetectionRange);
 
-            var wanderState = new WanderingState(_aiMovement);
-            var chaseState = new GoToTargetState(_aiMovement, humanFinder);
-            var attackState = new MonsterAttackState(this, _aiMovement, humanFinder);
+            var wanderState = new WanderingState(_ai);
+            var chaseState = new GoToTargetState(_ai, humanFinder);
+            var attackState = new MonsterAttackState(this, _ai, humanFinder);
 
             _stateMachine.AddAnyTransition(wanderState, () => !humanFinder.Target);
-
-            _stateMachine.AddTransition(wanderState, chaseState, () => humanFinder.Target && _shouldChase);
+            _stateMachine.AddAnyTransition(chaseState, () => humanFinder.Target && _shouldChase && !TargetIsInAttackRange());
+            
             _stateMachine.AddTransition(chaseState, attackState, () => humanFinder.Target && TargetIsInAttackRange());
 
             _stateMachine.SetState(wanderState);
 
-            humanFinder.OnTargetInRange += _ => { _shouldChase = MathUtils.RandomChance(config.ChaseChance); };
+            humanFinder.OnTargetInRange += _ => { _shouldChase = MathUtils.RandomChance(_config.ChaseChance); };
             humanFinder.OnTargetLost += () => { _shouldChase = false; };
 
             return;
 
             bool TargetIsInAttackRange() {
-                return Vector2.Distance(transform.position, humanFinder.Target.transform.position) < config.AttackRange;
+                return Vector2.Distance(transform.position, humanFinder.Target.transform.position) < _config.AttackRange;
             }
         }
 
         private void Update() => _stateMachine.Tick();
+        
+        public void SetConfig(MonsterBotConfigSO config) {
+            _config = config;
+        }
+        
+        public void Stop() {
+            _ai.canMove = false;
+            _ai.maxSpeed = 0;
+        }
     }
 }

@@ -1,10 +1,8 @@
-using Bot;
-using DG.Tweening;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace Character {
-    public class PlayerMovement : MonoBehaviour, IDie {
+    public class PlayerMovement : MonoBehaviour {
         [SerializeField] private float defaultMoveSpeed = 10f;
 
         public float DefaultMoveSpeed => defaultMoveSpeed;
@@ -30,12 +28,9 @@ namespace Character {
             moveDirection *= CurrentMoveSpeed;
             _rb.velocity = moveDirection;
         }
-
-        public void Die(Vector3 position) {
-            CurrentMoveSpeed = 0;
-            transform.position = position;
-
-            DOVirtual.DelayedCall(0.5f, () => { gameObject.SetActive(false); });
+        
+        public void SetMoveSpeed(float moveSpeed) {
+            CurrentMoveSpeed = moveSpeed;
         }
     }
 }

@@ -8,13 +8,12 @@ using Item;
 using Pathfinding;
 using UnityEngine;
 
-namespace Bot.Entities {
+namespace Bot.Entities.Human {
     public class HumanBotController : MonoBehaviour, IDie {
-        [SerializeField] private GameObject destination;
         [SerializeField] private TargetFinder itemFinder;
         [SerializeField] private TargetFinder monsterFinder;
-        [SerializeField] private HumanBotConfig config;
-
+        
+        private HumanBotConfig _config;
         private Hide _humanBotHide;
 
         private bool _shouldGoToItem;
@@ -32,13 +31,13 @@ namespace Bot.Entities {
         }
 
         private void Start() {
-            _ai.maxSpeed = config.WanderingSpeed;
-            itemFinder.SetRadius(config.ItemDetectionRange);
-            monsterFinder.SetRadius(config.MonsterDetectionRange);
+            _ai.maxSpeed = _config.WanderingSpeed;
+            itemFinder.SetRadius(_config.ItemDetectionRange);
+            monsterFinder.SetRadius(_config.MonsterDetectionRange);
 
             var wanderState = new WanderingState(_ai);
             var goToItemState = new GoToTargetState(_ai, itemFinder);
-            var goToGoalState = new GoToTargetState(_ai, destination.transform);
+            var goToGoalState = new GoToTargetState(_ai, ItemUnloader.Instance.transform);
 
             _stateMachine.AddAnyTransition(goToGoalState, () => _itemCarrier.IsCarrying);
             _stateMachine.AddAnyTransition(wanderState,
@@ -49,13 +48,13 @@ namespace Bot.Entities {
 
             itemFinder.OnTargetInRange += _ => {
                 if (_shouldGoToItem) return;
-                _shouldGoToItem = MathUtils.RandomChance(config.PickUpChance);
+                _shouldGoToItem = MathUtils.RandomChance(_config.PickUpChance);
             };
             itemFinder.OnTargetLost += () => { _shouldGoToItem = false; };
             _itemCarrier.OnItemPickedUp += () => { _shouldGoToItem = false; };
 
             monsterFinder.OnNewTargetFound += _ => {
-                if (MathUtils.RandomChance(config.HideChance)) {
+                if (MathUtils.RandomChance(_config.HideChance)) {
                     _humanBotHide.StartHiding();
                 }
             };
@@ -72,10 +71,25 @@ namespace Bot.Entities {
         }
 
         public void Die(Vector3 position) {
-            _ai.isStopped = true;
+            if (_itemCarrier.IsCarrying) {
+                _itemCarrier.DropItem();
+            }
+            
+            _ai.canMove = false;
             transform.position = position;
 
-            DOVirtual.DelayedCall(0.5f, () => { Destroy(gameObject); });
+            DOVirtual.DelayedCall(0.5f, () => {
+                Destroy(gameObject);
+            }).SetLink(gameObject);
+        }
+
+        public void SetConfig(HumanBotConfig config) {
+            _config = config;
+        }
+        
+        public void Stop() {
+            _ai.canMove = false;
+            _ai.maxSpeed = 0;
         }
     }
 }

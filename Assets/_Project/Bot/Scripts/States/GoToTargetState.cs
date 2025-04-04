@@ -22,12 +22,17 @@ namespace Bot.States {
 
         public void OnEnter() {
             _currentTarget = _targetFinder ? _targetFinder.Target : _target;
+            if (!_currentTarget) return;
             
             _ai.destination = _currentTarget.position;
             _ai.SearchPath();
         }
 
         public void Tick() {
+            // target might be destroyed before the bot reaches it, so we need to update the target
+            _currentTarget = _targetFinder ? _targetFinder.Target : _target;
+            if (!_currentTarget) return;
+            
             _ai.destination = _currentTarget.position;
         }
 
