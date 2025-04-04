@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playTime: 45
   numberOfHumanBots: 5
-  numberOfMonsterBots: 2
+  numberOfMonsterBots: 0
   humanBotConfigSO: {fileID: 11400000, guid: 0a45df8b3a0264c4f9811dfd3d19e236, type: 2}
   monsterBotConfigSO: {fileID: 11400000, guid: e7b8c516a6f50aa42a8cd6f04f8d06b6, type: 2}
   numberOfItemsToSpawn: 15

@@ -47,9 +47,10 @@ public class PanelManager : Singleton<PanelManager>
             cachedPanel.Add(name, panelObj);
         }
         GameObject panelObject = cachedPanel[name];
-        Instantiate(panelObject, container);
+        GameObject panleRelease = Instantiate(panelObject, container);
+        Debug.Log("Open Panel: "+ panleRelease.name);    
 
-        return panelObject.GetComponent<T>();
+        return panleRelease.GetComponent<T>();
     }
 
     public void OpenPanel(string name, PanelData panelData = null)
@@ -60,6 +61,7 @@ public class PanelManager : Singleton<PanelManager>
     public void ClosePanel(PanelBase panel)
     {
         listPanelRelease.Remove(panel);
+        Destroy(panel);
     }
 
     public async UniTask PlayTween(TweenData tweenData)

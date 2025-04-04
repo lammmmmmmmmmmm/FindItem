@@ -1120,7 +1120,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8749804034668962158}
   - component: {fileID: 3907533776164490406}
-  - component: {fileID: 2394719350855313303}
+  - component: {fileID: 6157311655332389142}
   m_Layer: 5
   m_Name: PanelChooseRole
   m_TagString: Untagged
@@ -1161,7 +1161,7 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
---- !u!114 &2394719350855313303
+--- !u!114 &6157311655332389142
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1175,6 +1175,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   listOpenTween: []
   listCloseTween: []
+  chooseImposterBtn: {fileID: 1288917923572374622}
+  chooseMonsterBtn: {fileID: 7371875217671555093}
 --- !u!1 &6440471056638594990
 GameObject:
   m_ObjectHideFlags: 0
