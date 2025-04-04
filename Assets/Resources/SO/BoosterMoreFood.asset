@@ -13,4 +13,7 @@ MonoBehaviour:
   m_Name: BoosterMoreFood
   m_EditorClassIdentifier: 
   boosterType: 3
-  icon: {fileID: 0}
+  boosterName: More Item
+  useForRoles: 00000000
+  iconImposter: {fileID: 21300000, guid: 5b1122795e36b294691d7459124b3289, type: 2}
+  iconMonster: {fileID: 0}

@@ -1,6 +1,6 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 namespace Survivor.Booster
 {
@@ -8,7 +8,13 @@ namespace Survivor.Booster
     public class BoosterData : ScriptableObject
     {
         public BoosterType boosterType;
-        public Sprite icon;
+        public string boosterName;
+
+        public List<PlayerRole> useForRoles;
+
+        [Header("icon")]
+        public Sprite iconImposter;
+        public Sprite iconMonster;
     }
 
     public enum BoosterType

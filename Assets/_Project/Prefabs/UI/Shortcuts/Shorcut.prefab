@@ -89,7 +89,7 @@ GameObject:
   - component: {fileID: 5442655366802452996}
   - component: {fileID: 5545639735278268426}
   m_Layer: 5
-  m_Name: SettingsShorcut
+  m_Name: Shorcut
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

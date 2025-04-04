@@ -36,6 +36,7 @@ public class DataManager : Singleton<DataManager>
         }
         set
         {
+            Debug.Log("Save Player Data");
             PlayerPrefs.SetString(PLAYER_DATA_KEY, JsonConvert.SerializeObject(value));
         }
     }
@@ -61,6 +62,7 @@ public class DataManager : Singleton<DataManager>
         }
         set
         {
+            Debug.Log("Save Settings Data");
             PlayerPrefs.SetString(SETTINGS_DATA_KEY, JsonConvert.SerializeObject(value));
         }
     }
@@ -89,6 +91,7 @@ public class DataManager : Singleton<DataManager>
 
         private set
         {
+            Debug.Log("Save Gameplay Data");
             PlayerPrefs.SetString(GAMEPLAY_DATA_KEY, JsonConvert.SerializeObject(value));
         }
     }
@@ -107,6 +110,47 @@ public class DataManager : Singleton<DataManager>
         _settingsData = SettingsData;
         _gameplayData = GameplayData;
     }
+
+    #region Player Data
+
+    #endregion
+
+    #region Settings Data
+
+    #endregion
+
+    #region Gameplay Data
+    public int GetTotalDie(GameMode gameMode)
+    {
+        return GetGameModeData(gameMode).totalDie;
+    }
+        public int GetTotalSurvived(GameMode gameMode)
+    {
+        return GetGameModeData(gameMode).totalSurvived;
+    }
+
+    public GameModeData GetGameModeData(GameMode gameMode)
+    {
+        if (!GameplayData.ContainsKey(gameMode))
+        {
+            GameplayData.Add(gameMode, new GameModeData(gameMode));
+        }
+        return GameplayData[gameMode];
+    }
+
+    public void SetGameModeData(GameMode gameMode, bool isSurvived)
+    {
+        if (!GameplayData.ContainsKey(gameMode))
+        {
+            GameplayData.Add(gameMode, new GameModeData(gameMode));
+        }
+        if (isSurvived)
+            GameplayData[gameMode].totalSurvived++;
+        else
+            GameplayData[gameMode].totalDie++;
+    }
+    #endregion
+
 }
 
 [Serializable]

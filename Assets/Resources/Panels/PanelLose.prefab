@@ -978,6 +978,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   listOpenTween: []
   listCloseTween: []
+  closeButton: {fileID: 7131716955808362864}
 --- !u!1 &8476040287403082963
 GameObject:
   m_ObjectHideFlags: 0

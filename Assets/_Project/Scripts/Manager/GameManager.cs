@@ -24,3 +24,10 @@ public class GameManager : Singleton<GameManager>
         this.state = state;
     }
 }
+
+public enum PlayerRole
+{
+    Imposter,
+    Monster
+}
+

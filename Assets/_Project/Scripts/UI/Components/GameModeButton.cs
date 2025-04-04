@@ -21,7 +21,6 @@ namespace Survivor.UI
         [Space]
         [SerializeField] private Image imageMode;
 
-
         private void Start()
         {
             //Setup 
@@ -33,6 +32,17 @@ namespace Survivor.UI
         private void OnClick()
         {
             LoadingManager.Instance.LoadScene(gameMode.ToString()).Forget();
+        }
+
+        private void UpdateVisual()
+        {
+            textNumSurvived.text = DataManager.Instance.GetTotalSurvived(gameMode).ToString();
+            textNumDie.text = DataManager.Instance.GetTotalDie(gameMode).ToString();
+        }
+
+        private void OnEnable()
+        {
+            UpdateVisual();
         }
     }
 }

@@ -13,4 +13,7 @@ MonoBehaviour:
   m_Name: BoosterMoreTime
   m_EditorClassIdentifier: 
   boosterType: 1
-  icon: {fileID: 0}
+  boosterName: More Time
+  useForRoles: 0000000001000000
+  iconImposter: {fileID: 21300000, guid: 5895abb93f08a674fb13dccac578124a, type: 2}
+  iconMonster: {fileID: 21300000, guid: 5895abb93f08a674fb13dccac578124a, type: 2}

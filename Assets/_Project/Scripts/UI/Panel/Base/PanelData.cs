@@ -42,9 +42,11 @@ namespace Survivor.UI
             return Get<T>(key.ToString());
         }
 
-        public enum PanelDataKey : byte
-        {
-            //
-        }
+    }
+
+    public enum PanelDataKey : byte
+    {
+        //
+        PlayerRole,
     }
 }
