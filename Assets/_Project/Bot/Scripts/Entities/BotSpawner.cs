@@ -6,6 +6,8 @@ using UnityEngine;
 
 namespace Bot.Entities {
     public class BotSpawner : MonoBehaviour {
+        [SerializeField] private GameObject humanPlayer;
+        [SerializeField] private GameObject monsterPlayer;
         [SerializeField] private int numberOfHumanBots;
         [SerializeField] private int numberOfMonsterBots;
         [SerializeField] private HumanBotConfig humanBotConfigSO;
@@ -26,6 +28,8 @@ namespace Bot.Entities {
                 humanBot.SetConfig(humanBotConfigSO);
                 _humanBots.Add(humanBot);
             }
+            
+            humanPlayer.transform.position = GetRandomSpawnPosition(_humanSpawnArea);
         }
         
         public void SpawnMonsterBots() {
@@ -35,6 +39,8 @@ namespace Bot.Entities {
                 monsterBot.SetConfig(monsterBotConfigSO);
                 _monsterBots.Add(monsterBot);
             }
+            
+            monsterPlayer.transform.position = GetRandomSpawnPosition(_monsterSpawnArea);
         }
         
         private Vector3 GetRandomSpawnPosition(Collider2D spawnArea) {

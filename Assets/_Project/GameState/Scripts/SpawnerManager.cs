@@ -21,7 +21,6 @@ namespace GameState {
             itemSpawner.SetNumberOfItemsToSpawn(gameModeSO.NumberOfItemsToSpawn);
             
             mapSpawner.SetRandomMaps(gameModeSO.MapPrefabs);
-            mapSpawner.SpawnMap();
         }
     }
 }
