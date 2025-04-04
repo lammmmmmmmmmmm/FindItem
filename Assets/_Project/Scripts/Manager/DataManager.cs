@@ -112,11 +112,43 @@ public class DataManager : Singleton<DataManager>
     }
 
     #region Player Data
-
+    public string GetPlayerName()
+    {
+        return PlayerData.name;
+    }
+    public void SetPlayerName(string playerName)
+    {
+        PlayerData.name = playerName;
+    }
     #endregion
 
     #region Settings Data
-
+    public bool GetMusic()
+    {
+        return SettingsData.music;
+    }
+    public bool GetSound()
+    {
+        return SettingsData.sound;
+    }
+    public bool GetVibration()
+    {
+        return SettingsData.vibration;
+    }
+    public void SetMusic(bool isEnabled)
+    {
+        SettingsData.music = isEnabled;
+    }
+    
+    public void SetSound(bool isEnabled)
+    {
+        SettingsData.sound = isEnabled;
+    }
+    
+    public void SetVibration(bool isEnabled)
+    {
+        SettingsData.vibration = isEnabled;
+    }
     #endregion
 
     #region Gameplay Data
