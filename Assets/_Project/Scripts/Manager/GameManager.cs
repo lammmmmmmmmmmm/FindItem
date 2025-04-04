@@ -1,7 +1,10 @@
+using System;
 using Survivor.Patterns;
 
 public class GameManager : Singleton<GameManager>
 {
+    public Action<GameState> OnChangeState;
+    
     protected override void OnAwake()
     {
         base.OnAwake();
@@ -22,6 +25,17 @@ public class GameManager : Singleton<GameManager>
     public void SetState(GameState state)
     {
         this.state = state;
+        OnChangeState?.Invoke(state);
+    }
+
+    public void OnWin()
+    {
+
+    }
+
+    public void OnLose()
+    {
+
     }
 }
 

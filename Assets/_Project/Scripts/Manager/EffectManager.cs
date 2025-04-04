@@ -1,11 +1,11 @@
 using Cysharp.Threading.Tasks;
 using DarkTonic.PoolBoss;
 using DG.Tweening;
-using Survivor.Patterns;
 using UnityEngine;
 
-public class EffectManager : Singleton<EffectManager>
+public class EffectManager : MonoBehaviour
 {
+    private UIManager uiManager;
     [SerializeField] private Vector2 spawnRange = new Vector2(1f, 1f);
     [SerializeField] private float duration = 0.5f;
 
@@ -18,6 +18,11 @@ public class EffectManager : Singleton<EffectManager>
     [SerializeField] private Transform diamondPrefab;
     [SerializeField] private int diamondAmount = 5;
     [SerializeField] private Transform targetDiamondBar;
+
+    public void Init(UIManager uiManager)
+    {
+        this.uiManager = uiManager;
+    }
 
     public async UniTask SpawnCoins(Vector3 startPosition)
     {
