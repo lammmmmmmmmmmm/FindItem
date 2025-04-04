@@ -19,4 +19,4 @@ MonoBehaviour:
   monsterBotConfigSO: {fileID: 11400000, guid: e7b8c516a6f50aa42a8cd6f04f8d06b6, type: 2}
   numberOfItemsToSpawn: 15
   mapPrefabs:
-  - {fileID: 7201315817841041182, guid: b4eced50d33d31e408007800b97b6db3, type: 3}
+  - {fileID: 7517791561751556057, guid: 4568c988a3965aa468f8ad47f859cbc5, type: 3}

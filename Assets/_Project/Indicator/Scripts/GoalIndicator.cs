@@ -20,7 +20,6 @@ namespace Indicator {
         
         public void SetTarget(MapData mapData) {
             target = mapData.itemUnloader.transform;
-            _offScreenIndicator.SetTarget(target);
         }
         
         public void EnableIndicator() {

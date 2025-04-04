@@ -290,7 +290,19 @@ MonoBehaviour:
       m_Calls: []
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7326951221831102044}
+        m_TargetAssemblyTypeName: Survivor.UI.PanelSettings, Assembly-CSharp
+        m_MethodName: UpdateName
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_OnTouchScreenKeyboardStatusChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1102,7 +1114,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8996084620162606749}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7326951221831102044}
+        m_TargetAssemblyTypeName: Survivor.UI.PanelSettings, Assembly-CSharp
+        m_MethodName: ToggleMusic
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &3110569656582703219
 GameObject:
   m_ObjectHideFlags: 0
@@ -1463,7 +1487,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1540824062985217011}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7326951221831102044}
+        m_TargetAssemblyTypeName: Survivor.UI.PanelSettings, Assembly-CSharp
+        m_MethodName: ToggleVibration
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5222495685312009344
 GameObject:
   m_ObjectHideFlags: 0
@@ -1780,7 +1816,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7144014523636897998}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7326951221831102044}
+        m_TargetAssemblyTypeName: Survivor.UI.PanelSettings, Assembly-CSharp
+        m_MethodName: ToggleSfx
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &6152549248089762734
 GameObject:
   m_ObjectHideFlags: 0
@@ -2151,6 +2199,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   listOpenTween: []
   listCloseTween: []
+  vibrationImage: {fileID: 1540824062985217011}
+  musicImage: {fileID: 8996084620162606749}
+  sfxImage: {fileID: 7144014523636897998}
+  nameInputField: {fileID: 0}
 --- !u!1 &8577523337338852434
 GameObject:
   m_ObjectHideFlags: 0
