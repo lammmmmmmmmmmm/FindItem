@@ -7,8 +7,8 @@ using UnityEngine;
 namespace Bot.Entities.Monster {
     public class MonsterBotController : MonoBehaviour {
         [SerializeField] private TargetFinder humanFinder;
-        [SerializeField] private MonsterBotConfigSO config;
-
+        
+        private MonsterBotConfigSO _config;
         private StateMachine _stateMachine;
         private AIPath _aiMovement;
 
@@ -20,8 +20,8 @@ namespace Bot.Entities.Monster {
         }
 
         private void Start() {
-            _aiMovement.maxSpeed = config.WanderingSpeed;
-            humanFinder.SetRadius(config.HumanDetectionRange);
+            _aiMovement.maxSpeed = _config.WanderingSpeed;
+            humanFinder.SetRadius(_config.HumanDetectionRange);
 
             var wanderState = new WanderingState(_aiMovement);
             var chaseState = new GoToTargetState(_aiMovement, humanFinder);
@@ -34,16 +34,25 @@ namespace Bot.Entities.Monster {
 
             _stateMachine.SetState(wanderState);
 
-            humanFinder.OnTargetInRange += _ => { _shouldChase = MathUtils.RandomChance(config.ChaseChance); };
+            humanFinder.OnTargetInRange += _ => { _shouldChase = MathUtils.RandomChance(_config.ChaseChance); };
             humanFinder.OnTargetLost += () => { _shouldChase = false; };
 
             return;
 
             bool TargetIsInAttackRange() {
-                return Vector2.Distance(transform.position, humanFinder.Target.transform.position) < config.AttackRange;
+                return Vector2.Distance(transform.position, humanFinder.Target.transform.position) < _config.AttackRange;
             }
         }
 
         private void Update() => _stateMachine.Tick();
+        
+        public void SetConfig(MonsterBotConfigSO config) {
+            _config = config;
+        }
+        
+        public void Stop() {
+            _aiMovement.isStopped = true;
+            _aiMovement.maxSpeed = 0;
+        }
     }
 }

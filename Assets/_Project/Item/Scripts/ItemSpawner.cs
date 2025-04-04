@@ -7,11 +7,11 @@ namespace Item {
         [SerializeField] private GameObject itemPrefab;
         [SerializeField] private LayerMask noSpawnLayerMask;
         
-        private void Start() {
-            SpawnItems();
+        public void SetNumberOfItemsToSpawn(int numberOfItems) {
+            numberOfItemsToSpawn = numberOfItems;
         }
         
-        private void SpawnItems() {
+        public void SpawnItems() {
             Collider2D[] results = new Collider2D[1];
             for (int i = 0; i < numberOfItemsToSpawn; i++) {
                 Vector2 randomPosition = Random.insideUnitCircle * spawnRadius;

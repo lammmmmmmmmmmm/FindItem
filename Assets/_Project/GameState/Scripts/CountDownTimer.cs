@@ -1,27 +1,25 @@
+using _Global;
 using UnityEngine;
 using UnityEngine.Events;
 
 namespace GameState {
     public class CountDownTimer : MonoBehaviour {
-        [SerializeField] private float timeToWait = 5f;
-        [SerializeField] private bool isActive = true;
         public UnityEvent onTimerEndEvent;
 
-        public float CurrentTime { get; private set; }
-
-        private void Start() {
-            CurrentTime = timeToWait;
-        }
+        private Timer _timer;
+        public float CurrentTime => _timer?.CurrentTime ?? 0f;
 
         private void Update() {
-            if (!isActive)
-                return;
-
-            CurrentTime -= Time.deltaTime;
-
-            if (CurrentTime <= 0) {
-                isActive = false;
+            if (_timer.Tick(Time.deltaTime)) {
                 onTimerEndEvent.Invoke();
+            }
+        }
+        
+        public void SetTimeToWait(float time) {
+            if (_timer == null) {
+                _timer = new Timer(time);
+            } else {
+                _timer.SetTime(time);
             }
         }
     }
