@@ -24,6 +24,7 @@ namespace Character {
 
         private void FixedUpdate() {
             Vector2 moveDirection = _moveAction.ReadValue<Vector2>();
+            Debug.Log(moveDirection);
             _fogOfWall?.UpdateRotation(moveDirection);
             moveDirection *= CurrentMoveSpeed;
             _rb.velocity = moveDirection;

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace Survivor.UI {
@@ -8,12 +9,24 @@ namespace Survivor.UI {
         [SerializeField] private Image sfxImage;
         
         [SerializeField] private InputField nameInputField;
-        
+        [SerializeField] private GameObject homeObject;
+        [SerializeField] private GameObject ingameObject;
+
+        protected override void Setup()
+        {
+            base.Setup();
+
+            bool inGame = SceneManager.GetActiveScene().name == "Gameplay";
+
+            homeObject.SetActive(!inGame);
+            ingameObject.SetActive(inGame);
+
+        }
+
         public override void Open(PanelData panelData) {
             base.Open(panelData);
             
             nameInputField.text = DataManager.Instance.GetPlayerName();
-            
             //TODO: update UI with current settings
         }
 
@@ -42,6 +55,17 @@ namespace Survivor.UI {
             if (string.IsNullOrEmpty(playerName)) return;
             
             DataManager.Instance.SetPlayerName(playerName);
+        }
+
+        public void ClickContinue()
+        {
+            Close();
+        }
+
+        public void ClickHome()
+        {
+            Close();
+            LoadingManager.Instance.LoadScene("HomeScene").Forget();
         }
     }
 }
