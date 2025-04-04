@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Newtonsoft.Json;
+using Survivor.Gameplay;
 using Survivor.Patterns;
 using UnityEngine;
 
@@ -8,9 +9,11 @@ public class DataManager : Singleton<DataManager>
 {
     private const string PLAYER_DATA_KEY = "player_data";
     private const string SETTINGS_DATA_KEY = "settings_data";
+    private const string GAMEPLAY_DATA_KEY = "gameplay_data";
 
     private PlayerData _playerData;
     private SettingsData _settingsData;
+    private Dictionary<GameMode, GameModeData> _gameplayData;
 
     public PlayerData PlayerData
     {
@@ -62,6 +65,34 @@ public class DataManager : Singleton<DataManager>
         }
     }
 
+    public Dictionary<GameMode, GameModeData> GameplayData
+    {
+        get
+        {
+            if (_gameplayData == null)
+            {
+                if (!PlayerPrefs.HasKey(GAMEPLAY_DATA_KEY))
+                {
+                    _gameplayData = new Dictionary<GameMode, GameModeData>();
+                    GameplayData = _gameplayData;
+                }
+                else
+                {
+                    _gameplayData = JsonConvert.DeserializeObject<Dictionary<GameMode, GameModeData>>(
+                        PlayerPrefs.GetString(GAMEPLAY_DATA_KEY)
+                        );
+                }
+            }
+
+            return _gameplayData;
+        }
+
+        private set
+        {
+            PlayerPrefs.SetString(GAMEPLAY_DATA_KEY, JsonConvert.SerializeObject(value));
+        }
+    }
+
     protected override void OnAwake()
     {
         base.OnAwake();
@@ -74,6 +105,7 @@ public class DataManager : Singleton<DataManager>
     {
         _playerData = PlayerData;
         _settingsData = SettingsData;
+        _gameplayData = GameplayData;
     }
 }
 
@@ -82,14 +114,37 @@ public class PlayerData
 {
     public string name;
     public Dictionary<GameResources, int> resourcesData;
+
+    public PlayerData()
+    {
+        name = "";
+        resourcesData = new Dictionary<GameResources, int>()
+        {
+            { GameResources.Coin, GameConfigs.COIN_INIT },
+            { GameResources.Diamond, GameConfigs.DIAMOND_INIT },
+        };
+    }
 }
 
 [Serializable]
 public class SettingsData
 {
-    public bool music;
-    public bool sound;
-    public bool vibration;
+    public bool music = true;
+    public bool sound = true;
+    public bool vibration = true;
+}
+
+[SerializeField]
+public class GameModeData
+{
+    public GameMode gameMode;
+    public int totalSurvived = 0;
+    public int totalDie = 0;
+
+    public GameModeData(GameMode gameMode)
+    {
+        this.gameMode = gameMode;
+    }
 }
 
 public enum GameResources

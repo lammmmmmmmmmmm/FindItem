@@ -1,8 +1,8 @@
 using UnityEngine;
 using Survivor.Gameplay;
 
-[CreateAssetMenu(fileName = "GameModeData", menuName = "SO/Data/GameModeData")]
-public class GameModeData : ScriptableObject
+[CreateAssetMenu(fileName = "GameModeConfig", menuName = "SO/Data/GameModeConfig")]
+public class GameModeConfig : ScriptableObject
 {
     public GameMode gameMode;
     [Header("Player Data")]

@@ -49,12 +49,12 @@ MonoBehaviour:
   FogType: 1
   FogFade: 4
   BlendType: 0
-  EdgeSoftenDistance: 0.1
-  UnobscuredSoftenDistance: 0.25
+  EdgeSoftenDistance: 0
+  UnobscuredSoftenDistance: 0
   UseInnerSoften: 1
-  InnerSoftenAngle: 5
+  InnerSoftenAngle: 3
   AllowBleeding: 0
-  SightExtraAmount: 0.01
+  SightExtraAmount: -0.01
   MaxFogDistance: 10000
   PixelateFog: 0
   WorldSpacePixelate: 0
@@ -66,7 +66,7 @@ MonoBehaviour:
   InvertFowEffect: 0
   FogFadePower: 1
   FogAppearance: 0
-  UnknownColor: {r: 0.35, g: 0.35, b: 0.35, a: 1}
+  UnknownColor: {r: 0.13207549, g: 0.13207549, b: 0.13207549, a: 1}
   SaturationStrength: 0
   BlurStrength: 1
   BlurDistanceScreenPercentMin: 0.1
@@ -90,8 +90,8 @@ MonoBehaviour:
   ConstantTextureBlurQuality: 1
   ConstantTextureBlurAmount: 0
   UseWorldBounds: 0
-  WorldBoundsSoftenDistance: 1
-  WorldBoundsInfluence: 1
+  WorldBoundsSoftenDistance: 3.48
+  WorldBoundsInfluence: 0.386
   WorldBounds:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 50, y: 25, z: 0.5}
