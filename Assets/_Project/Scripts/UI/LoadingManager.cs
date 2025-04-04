@@ -23,6 +23,9 @@ namespace Survivor.UI
         {
             DontDestroyOnLoad(this);
 
+            Application.targetFrameRate = 60;
+            QualitySettings.vSyncCount = 0;
+
             canvasGroup = loadingObject.GetComponent<CanvasGroup>();
             loadingObject.SetActive(false);
         }

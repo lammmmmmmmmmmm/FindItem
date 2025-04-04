@@ -34,8 +34,6 @@ namespace GameState {
         private void Start() {
             gameMode = GameManager.Instance.gameMode;
 
-            countDownTimer.SetTimeToWait(gameModeSO.PlayTime);
-            
             botSpawner.SetBotCount(gameModeSO.NumberOfHumanBots, gameModeSO.NumberOfMonsterBots);
             botSpawner.SetBotConfig(gameModeSO.HumanBotConfigSO, gameModeSO.MonsterBotConfigSO);
             
@@ -76,12 +74,13 @@ namespace GameState {
             }
 
             uiIngame.SetRoleUI(playerRole);
-            SpawnMap();
+            StartGame();
         }
 
-        private void SpawnMap()
+        private void StartGame()
         {
             mapSpawner.SpawnMap();
+            countDownTimer.SetTimeToWait(gameModeSO.PlayTime);
         }
 
         public void OnFullItem()
