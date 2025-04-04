@@ -66,7 +66,7 @@ namespace Bot.Entities {
             }
         }
         
-        public void SetSpawnArea(MapSpawnArea area) {
+        public void SetSpawnArea(MapData area) {
             _humanSpawnArea = area.humanSpawnAreaCollider;
             _monsterSpawnArea = area.monsterSpawnAreaCollider;
         }

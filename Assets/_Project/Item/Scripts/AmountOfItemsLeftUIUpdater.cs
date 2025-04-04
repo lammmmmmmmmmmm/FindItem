@@ -1,3 +1,4 @@
+using Map;
 using TMPro;
 using UnityEngine;
 
@@ -6,8 +7,8 @@ namespace Item {
         [SerializeField] private TextMeshProUGUI amountOfItemsLeftText;
         private int _totalItems;
         
-        public void SetTotalItems() {
-            _totalItems = ItemUnloader.Instance.TotalItems;
+        public void SetTotalItems(MapData mapData) {
+            _totalItems = mapData.itemUnloader.TotalItems;
             UpdateText(0);
         }
 

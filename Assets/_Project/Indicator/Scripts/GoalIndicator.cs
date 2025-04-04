@@ -1,3 +1,5 @@
+using Item;
+using Map;
 using UnityEngine;
 
 namespace Indicator {
@@ -14,6 +16,11 @@ namespace Indicator {
     
         private void Update() {
             _offScreenIndicator.UpdateIndicator();
+        }
+        
+        public void SetTarget(MapData mapData) {
+            target = mapData.itemUnloader.transform;
+            _offScreenIndicator.SetTarget(target);
         }
         
         public void EnableIndicator() {

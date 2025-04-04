@@ -17,7 +17,7 @@ namespace GameState {
         
         [SerializeField] private int numberOfItemsToSpawn = 15;
         
-        [SerializeField] private List<MapSpawnArea> mapPrefabs;
+        [SerializeField] private List<MapData> mapPrefabs;
         
         public float PlayTime => playTime;
         public int NumberOfHumanBots => numberOfHumanBots;
@@ -25,6 +25,6 @@ namespace GameState {
         public HumanBotConfig HumanBotConfigSO => humanBotConfigSO;
         public MonsterBotConfigSO MonsterBotConfigSO => monsterBotConfigSO;
         public int NumberOfItemsToSpawn => numberOfItemsToSpawn;
-        public List<MapSpawnArea> MapPrefabs => mapPrefabs;
+        public List<MapData> MapPrefabs => mapPrefabs;
     }
 }
