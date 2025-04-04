@@ -704,11 +704,11 @@ MonoBehaviour:
   onItemUnloadedEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400000, guid: 82fa2581c34057d4b9addbe1faac3170, type: 2}
-        m_TargetAssemblyTypeName: _Global.EventChannels.ScriptableObjects.VoidEventChannelSO,
-          Assembly-CSharp
+      - m_Target: {fileID: 11400000, guid: fd0718028c1ef8848a080aa9b447bb03, type: 2}
+        m_TargetAssemblyTypeName: _Global.EventChannels.ScriptableObjects.GenericEventChannelSO`1[[System.Int32,
+          mscorlib
         m_MethodName: RaiseEvent
-        m_Mode: 1
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

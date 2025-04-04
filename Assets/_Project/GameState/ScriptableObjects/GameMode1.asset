@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68355745555e45a39ba02324ec5859c4, type: 3}
   m_Name: GameMode1
   m_EditorClassIdentifier: 
-  playTime: 10
+  playTime: 45
   numberOfHumanBots: 5
   numberOfMonsterBots: 2
   humanBotConfigSO: {fileID: 11400000, guid: 0a45df8b3a0264c4f9811dfd3d19e236, type: 2}

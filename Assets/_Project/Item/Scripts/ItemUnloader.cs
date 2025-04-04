@@ -9,7 +9,9 @@ namespace Item {
         [SerializeField] private GameObject[] spots;
         private int _currentSpotIndex;
         
-        public UnityEvent onItemUnloadedEvent;
+        public int TotalItems => spots.Length;
+        
+        public UnityEvent<int> onItemUnloadedEvent;
         public UnityEvent onAllItemsUnloadedEvent;
 
         private void OnTriggerEnter2D(Collider2D other) {
@@ -35,7 +37,7 @@ namespace Item {
             }
             
             //TODO: add event when player unloads item
-            onItemUnloadedEvent.Invoke();
+            onItemUnloadedEvent.Invoke(_currentSpotIndex);
         }
     }
 }
