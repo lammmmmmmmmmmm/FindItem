@@ -71,10 +71,16 @@ namespace Bot.Entities.Human {
         }
 
         public void Die(Vector3 position) {
-            _ai.isStopped = true;
+            if (_itemCarrier.IsCarrying) {
+                _itemCarrier.DropItem();
+            }
+            
+            _ai.canMove = false;
             transform.position = position;
 
-            DOVirtual.DelayedCall(0.5f, () => { Destroy(gameObject); }).SetLink(gameObject);
+            DOVirtual.DelayedCall(0.5f, () => {
+                Destroy(gameObject);
+            }).SetLink(gameObject);
         }
 
         public void SetConfig(HumanBotConfig config) {
