@@ -1,6 +1,9 @@
+using System.Collections;
+using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using Survivor.Patterns;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace Survivor.UI
@@ -14,8 +17,12 @@ namespace Survivor.UI
         [SerializeField] private Image iconDecor;
         [SerializeField] private Slider progress;
 
+        private WaitForSeconds waitTime = new WaitForSeconds(0.5f);
+
         private void Awake()
         {
+            DontDestroyOnLoad(this);
+
             canvasGroup = loadingObject.GetComponent<CanvasGroup>();
             loadingObject.SetActive(false);
         }
@@ -26,19 +33,49 @@ namespace Survivor.UI
 
             // Reset Progress
             progress.value = 0;
-            canvasGroup.alpha = 0;
+            canvasGroup.alpha = 0.8f;
         }
 
-        private void StartLoading()
+        private async UniTask StartLoading()
         {
             loadingObject.SetActive(true);
-            canvasGroup.DOFade(1, 0.1f).SetEase(Ease.Linear);
+            await canvasGroup.DOFade(1, 0.1f).SetEase(Ease.Linear).ToUniTask();
         }
 
-        private void OnEnable()
+        private void StopLoading()
+        {
+            canvasGroup.DOFade(0.5f, 0.1f).SetEase(Ease.Linear).OnComplete(() =>
+            {
+                loadingObject.SetActive(false);
+            });
+        }
+
+        IEnumerator LoadNextScene(string nameScene)
+        {
+            AsyncOperation operation = SceneManager.LoadSceneAsync(nameScene);
+            operation.allowSceneActivation = false;
+
+            var tween = progress.DOValue(0.9f, 0.2f);
+
+            while (operation.progress < 0.9f)
+            {
+                yield return null;
+            }
+
+            operation.allowSceneActivation = true;
+
+            tween.Complete();
+            progress.DOValue(1, 0.1f);
+
+            yield return waitTime;
+            StopLoading();
+        }
+
+        public async UniTaskVoid LoadScene(string nameScene)
         {
             Setup();
-            StartLoading();
+            await StartLoading();
+            StartCoroutine(LoadNextScene(nameScene));
         }
     }
 }

@@ -1,8 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Survivor.Gameplay;
 
 namespace Survivor.UI
 {
@@ -10,7 +10,7 @@ namespace Survivor.UI
     public class GameModeButton : MonoBehaviour
     {
         private Button button;
-        [SerializeField] private GameplayManager.GameMode gameMode;
+        [SerializeField] private GameMode gameMode;
 
         [Header("UI Components")]
         [SerializeField] private TextMeshProUGUI textModeName;
@@ -32,7 +32,7 @@ namespace Survivor.UI
 
         private void OnClick()
         {
-            Debug.Log("Play Mode: " + gameMode.ToString());
+            LoadingManager.Instance.LoadScene(gameMode.ToString()).Forget();
         }
     }
 }
