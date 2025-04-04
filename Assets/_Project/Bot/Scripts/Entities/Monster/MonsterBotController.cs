@@ -10,22 +10,22 @@ namespace Bot.Entities.Monster {
         
         private MonsterBotConfigSO _config;
         private StateMachine _stateMachine;
-        private AIPath _aiMovement;
+        private AIPath _ai;
 
         private bool _shouldChase;
 
         private void Awake() {
             _stateMachine = new StateMachine();
-            _aiMovement = GetComponent<AIPath>();
+            _ai = GetComponent<AIPath>();
         }
 
         private void Start() {
-            _aiMovement.maxSpeed = _config.WanderingSpeed;
+            _ai.maxSpeed = _config.WanderingSpeed;
             humanFinder.SetRadius(_config.HumanDetectionRange);
 
-            var wanderState = new WanderingState(_aiMovement);
-            var chaseState = new GoToTargetState(_aiMovement, humanFinder);
-            var attackState = new MonsterAttackState(this, _aiMovement, humanFinder);
+            var wanderState = new WanderingState(_ai);
+            var chaseState = new GoToTargetState(_ai, humanFinder);
+            var attackState = new MonsterAttackState(this, _ai, humanFinder);
 
             _stateMachine.AddAnyTransition(wanderState, () => !humanFinder.Target);
             _stateMachine.AddAnyTransition(chaseState, () => humanFinder.Target && _shouldChase && !TargetIsInAttackRange());
@@ -51,8 +51,8 @@ namespace Bot.Entities.Monster {
         }
         
         public void Stop() {
-            _aiMovement.isStopped = true;
-            _aiMovement.maxSpeed = 0;
+            _ai.canMove = false;
+            _ai.maxSpeed = 0;
         }
     }
 }

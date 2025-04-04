@@ -88,7 +88,7 @@ namespace Bot.Entities.Human {
         }
         
         public void Stop() {
-            _ai.isStopped = true;
+            _ai.canMove = false;
             _ai.maxSpeed = 0;
         }
     }
