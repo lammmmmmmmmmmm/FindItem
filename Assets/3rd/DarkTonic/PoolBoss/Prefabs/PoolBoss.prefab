@@ -24,12 +24,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 100000}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 71.952385, y: 0, z: 293.73053}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &11400000
 MonoBehaviour:
@@ -45,128 +46,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   poolItems:
   - prefabSource: 0
-    prefabTransform: {fileID: 2714365574825087355, guid: 54b2bf9e602d9bd4d992f8492f8b1f13,
-      type: 3}
+    prefabTransform: {fileID: 7527074840120439866, guid: 5569f7b46ec35f34885e9a7ce8a740aa, type: 3}
     gameObject: {fileID: 0}
-    instancesToPreload: 4
+    instancesToPreload: 10
     isExpanded: 1
     logMessages: 0
     allowInstantiateMore: 1
     enableNavMeshAgentOnSpawn: 0
     delayNavMeshEnableByFrames: 1
-    itemHardLimit: 8
+    itemHardLimit: 20
     allowRecycle: 0
     categoryName: ItemInGame
     isTemporary: 0
   - prefabSource: 0
-    prefabTransform: {fileID: 2714365574825087355, guid: 77e03a441a14a8f43a039d84e5ae6fd0,
-      type: 3}
+    prefabTransform: {fileID: 4312074772648968141, guid: ff97e7be91dbd3a41b06c95ce71c96c7, type: 3}
     gameObject: {fileID: 0}
-    instancesToPreload: 4
+    instancesToPreload: 10
     isExpanded: 1
     logMessages: 0
     allowInstantiateMore: 1
     enableNavMeshAgentOnSpawn: 0
     delayNavMeshEnableByFrames: 1
-    itemHardLimit: 8
-    allowRecycle: 0
-    categoryName: ItemInGame
-    isTemporary: 0
-  - prefabSource: 0
-    prefabTransform: {fileID: 2714365574825087355, guid: fb5a613e4048fc14bbd2cb22b07953cc,
-      type: 3}
-    gameObject: {fileID: 0}
-    instancesToPreload: 4
-    isExpanded: 1
-    logMessages: 0
-    allowInstantiateMore: 1
-    enableNavMeshAgentOnSpawn: 0
-    delayNavMeshEnableByFrames: 1
-    itemHardLimit: 8
-    allowRecycle: 0
-    categoryName: ItemInGame
-    isTemporary: 0
-  - prefabSource: 0
-    prefabTransform: {fileID: 2714365574825087355, guid: e16a795159e3f2443a837fec0cf11ccb,
-      type: 3}
-    gameObject: {fileID: 0}
-    instancesToPreload: 4
-    isExpanded: 1
-    logMessages: 0
-    allowInstantiateMore: 1
-    enableNavMeshAgentOnSpawn: 0
-    delayNavMeshEnableByFrames: 1
-    itemHardLimit: 8
-    allowRecycle: 1
-    categoryName: ItemInGame
-    isTemporary: 0
-  - prefabSource: 0
-    prefabTransform: {fileID: 2714365574825087355, guid: 807dc4cad91250c439a31672959bd985,
-      type: 3}
-    gameObject: {fileID: 0}
-    instancesToPreload: 4
-    isExpanded: 1
-    logMessages: 0
-    allowInstantiateMore: 1
-    enableNavMeshAgentOnSpawn: 0
-    delayNavMeshEnableByFrames: 1
-    itemHardLimit: 8
-    allowRecycle: 0
-    categoryName: ItemInGame
-    isTemporary: 0
-  - prefabSource: 0
-    prefabTransform: {fileID: 2714365574825087355, guid: f026376b5f54a2646824c31b36a8c613,
-      type: 3}
-    gameObject: {fileID: 0}
-    instancesToPreload: 4
-    isExpanded: 1
-    logMessages: 0
-    allowInstantiateMore: 1
-    enableNavMeshAgentOnSpawn: 0
-    delayNavMeshEnableByFrames: 1
-    itemHardLimit: 8
-    allowRecycle: 0
-    categoryName: ItemInGame
-    isTemporary: 0
-  - prefabSource: 0
-    prefabTransform: {fileID: 2714365574825087355, guid: 8065876ef3c98084994e7a1715979659,
-      type: 3}
-    gameObject: {fileID: 0}
-    instancesToPreload: 4
-    isExpanded: 1
-    logMessages: 0
-    allowInstantiateMore: 1
-    enableNavMeshAgentOnSpawn: 0
-    delayNavMeshEnableByFrames: 1
-    itemHardLimit: 8
-    allowRecycle: 0
-    categoryName: ItemInGame
-    isTemporary: 0
-  - prefabSource: 0
-    prefabTransform: {fileID: 2714365574825087355, guid: 0eb5263349f06ba49aa5a4b5665322ab,
-      type: 3}
-    gameObject: {fileID: 0}
-    instancesToPreload: 4
-    isExpanded: 1
-    logMessages: 0
-    allowInstantiateMore: 1
-    enableNavMeshAgentOnSpawn: 0
-    delayNavMeshEnableByFrames: 1
-    itemHardLimit: 8
-    allowRecycle: 0
-    categoryName: ItemInGame
-    isTemporary: 0
-  - prefabSource: 0
-    prefabTransform: {fileID: 2714365574825087355, guid: dc5d9d39306bf0e48bdd73ce9271348a,
-      type: 3}
-    gameObject: {fileID: 0}
-    instancesToPreload: 4
-    isExpanded: 1
-    logMessages: 0
-    allowInstantiateMore: 1
-    enableNavMeshAgentOnSpawn: 0
-    delayNavMeshEnableByFrames: 1
-    itemHardLimit: 8
+    itemHardLimit: 20
     allowRecycle: 0
     categoryName: ItemInGame
     isTemporary: 0
@@ -183,7 +84,7 @@ MonoBehaviour:
   _changes: 0
   _categories:
   - CatName: ItemInGame
-    IsExpanded: 1
+    IsExpanded: 0
     IsEditing: 0
     ProspectiveName: ItemInGame
     IsTemporary: 0

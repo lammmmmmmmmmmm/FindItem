@@ -1,10 +1,13 @@
 using Bot.Entities;
 using Item;
 using Map;
+using Survivor.Gameplay;
 using UnityEngine;
 
 namespace GameState {
     public class SpawnerManager : MonoBehaviour {
+        private GameMode gameMode;
+
         [SerializeField] private GameModeSO gameModeSO;
         
         [SerializeField] private CountDownTimer countDownTimer;
@@ -13,6 +16,8 @@ namespace GameState {
         [SerializeField] private MapSpawner mapSpawner;
         
         private void Start() {
+            gameMode = GameManager.Instance.gameMode;
+
             countDownTimer.SetTimeToWait(gameModeSO.PlayTime);
             
             botSpawner.SetBotCount(gameModeSO.NumberOfHumanBots, gameModeSO.NumberOfMonsterBots);

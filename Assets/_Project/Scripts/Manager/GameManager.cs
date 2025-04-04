@@ -1,10 +1,12 @@
 using System;
+using Survivor.Gameplay;
 using Survivor.Patterns;
 
 public class GameManager : Singleton<GameManager>
 {
     public Action<GameState> OnChangeState;
-    
+    public GameMode gameMode;
+
     protected override void OnAwake()
     {
         base.OnAwake();

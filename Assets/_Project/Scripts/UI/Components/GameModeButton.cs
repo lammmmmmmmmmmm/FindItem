@@ -31,7 +31,8 @@ namespace Survivor.UI
 
         private void OnClick()
         {
-            LoadingManager.Instance.LoadScene(gameMode.ToString()).Forget();
+            GameManager.Instance.gameMode = gameMode;
+            LoadingManager.Instance.LoadScene("Gameplay").Forget();
         }
 
         private void UpdateVisual()

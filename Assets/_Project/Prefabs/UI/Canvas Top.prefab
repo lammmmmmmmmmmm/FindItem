@@ -656,6 +656,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8008526e8a0060343afe8bd9887beb5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnRange: {x: 1, y: 1}
+  duration: 0.5
+  coinPrefab: {fileID: 0}
+  coinAmount: 5
+  targetCoinBar: {fileID: 0}
+  diamondPrefab: {fileID: 0}
+  diamondAmount: 5
+  targetDiamondBar: {fileID: 0}
 --- !u!1 &4174912485509048987
 GameObject:
   m_ObjectHideFlags: 0
@@ -900,6 +908,7 @@ GameObject:
   - component: {fileID: 2255429893413429406}
   - component: {fileID: 3498223859833076471}
   - component: {fileID: 1602624062367111390}
+  - component: {fileID: 6844648101642185582}
   m_Layer: 5
   m_Name: Canvas Top
   m_TagString: Untagged
@@ -992,6 +1001,20 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &6844648101642185582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7763100009037378899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bfbb6a825c130d4fb7a1887c43521fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coinBar: {fileID: 2594097763419106047}
+  diamondBar: {fileID: 2467387902308909743}
 --- !u!1 &9083033245470630787
 GameObject:
   m_ObjectHideFlags: 0

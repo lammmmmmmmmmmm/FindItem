@@ -48,14 +48,14 @@ namespace Survivor.UI
 
         private void ClickClaim()
         {
-            EffectManager.Instance.SpawnCoins(claimBtn.transform.position).Forget();
+            UIManager.Instance.EffectManager.SpawnCoins(claimBtn.transform.position).Forget();
             Close();
             LoadingManager.Instance.LoadScene("HomeScene").Forget();
         }
 
         private void ClickBonusClaim()
         {
-            EffectManager.Instance.SpawnDiamond(bonusClaimBtn.transform.position).Forget();
+            UIManager.Instance.EffectManager.SpawnDiamond(bonusClaimBtn.transform.position).Forget();
             Close();
             LoadingManager.Instance.LoadScene("HomeScene").Forget();
         }
