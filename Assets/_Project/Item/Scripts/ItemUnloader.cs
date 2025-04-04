@@ -13,6 +13,7 @@ namespace Item {
         
         public UnityEvent<int> onItemUnloadedEvent;
         public UnityEvent onAllItemsUnloadedEvent;
+        public UnityEvent onItemUnloadedEventWithPlayer;
 
         private void OnTriggerEnter2D(Collider2D other) {
             if (humanLayerMask.Contains(other.gameObject.layer)) {
@@ -23,6 +24,10 @@ namespace Item {
                 itemCarrier.ResetCarrying();
 
                 AddItemToFreeSpot();
+                
+                if (other.CompareTag("Player")) {
+                    onItemUnloadedEventWithPlayer.Invoke();
+                }
             }
         }
 

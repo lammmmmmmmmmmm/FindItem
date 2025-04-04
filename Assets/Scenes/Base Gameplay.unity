@@ -2335,7 +2335,19 @@ MonoBehaviour:
       - m_Target: {fileID: 1379001395}
         m_TargetAssemblyTypeName: Item.AmountOfItemsLeftUIUpdater, Assembly-CSharp
         m_MethodName: SetTotalItems
-        m_Mode: 1
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 376434246}
+        m_TargetAssemblyTypeName: Indicator.GoalIndicator, Assembly-CSharp
+        m_MethodName: SetTarget
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2512,6 +2524,7 @@ GameObject:
   - component: {fileID: 1658382732}
   - component: {fileID: 1658382731}
   - component: {fileID: 1658382733}
+  - component: {fileID: 1658382734}
   m_Layer: 0
   m_Name: Item Event Listener
   m_TagString: Untagged
@@ -2603,6 +2616,47 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1658382734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1658382730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73d494b4b9e32479fb7000d6a2e045ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventChannel: {fileID: 11400000, guid: 42192cb4a1d940d43a063b756351da2a, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 376434246}
+        m_TargetAssemblyTypeName: Indicator.GoalIndicator, Assembly-CSharp
+        m_MethodName: DisableIndicator
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1521725187}
+        m_TargetAssemblyTypeName: Indicator.ItemIndicator, Assembly-CSharp
+        m_MethodName: DelayFindItems
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  delay: 0
 --- !u!1 &1687039477
 GameObject:
   m_ObjectHideFlags: 0

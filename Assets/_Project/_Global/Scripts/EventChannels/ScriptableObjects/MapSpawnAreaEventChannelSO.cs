@@ -8,6 +8,6 @@ namespace _Global.EventChannels.ScriptableObjects {
     /// </summary>
     /// 
     [CreateAssetMenu(menuName = "Events/MapSpawnAreaEventChannelSO", fileName = "MapSpawnAreaEventChannel")]
-    public class MapSpawnAreaEventChannelSO : GenericEventChannelSO<MapSpawnArea> {
+    public class MapSpawnAreaEventChannelSO : GenericEventChannelSO<MapData> {
     }
 }
