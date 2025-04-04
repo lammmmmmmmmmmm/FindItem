@@ -7,7 +7,9 @@ using UnityEngine;
 namespace Bot.Entities.Monster {
     public class MonsterBotController : MonoBehaviour {
         [SerializeField] private TargetFinder humanFinder;
-        
+
+        private BotSpawner _botSpawner;
+
         private MonsterBotConfigSO _config;
         private StateMachine _stateMachine;
         private AIPath _ai;

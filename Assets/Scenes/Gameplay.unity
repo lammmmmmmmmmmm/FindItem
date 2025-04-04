@@ -1140,7 +1140,7 @@ GameObject:
   - component: {fileID: 868352691}
   - component: {fileID: 868352690}
   m_Layer: 0
-  m_Name: On Win Event Listener
+  m_Name: On Item Full Event Listener
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1190,6 +1190,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: Character.PlayerMovement, Assembly-CSharp
         m_MethodName: SetMoveSpeed
         m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2122861677}
+        m_TargetAssemblyTypeName: GameState.GameplayController, Assembly-CSharp
+        m_MethodName: OnFullItem
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1439,6 +1451,7 @@ MonoBehaviour:
   monsterBotConfigSO: {fileID: 0}
   humanBotPrefab: {fileID: 8830143212163603090, guid: 26111da7ba5cffd4eb0b4de825ae6d53, type: 3}
   monsterBotPrefab: {fileID: 3652651036537671330, guid: 24789686df77e504487dd166ab4afadf, type: 3}
+  OnAllHumanDie: {fileID: 11400000, guid: d2264abe7c540604d9181b7dbe8564d9, type: 2}
 --- !u!1 &1329611057
 GameObject:
   m_ObjectHideFlags: 0

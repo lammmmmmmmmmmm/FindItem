@@ -3249,6 +3249,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   listOpenTween: []
   listCloseTween: []
+  textNumCoin: {fileID: 3666670533054939605}
+  textNumDiamond: {fileID: 5290436037289231045}
+  claimBtn: {fileID: 105384139053296290}
+  textQuantityClaim: {fileID: 3864481833151724245}
+  bonusClaimBtn: {fileID: 4695773434727798716}
+  textQuantityBonus: {fileID: 4779662641539112608}
+  closeBtn: {fileID: 8339990975809760033}
 --- !u!1 &8633647766110265854
 GameObject:
   m_ObjectHideFlags: 0

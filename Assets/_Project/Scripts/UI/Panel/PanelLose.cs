@@ -14,5 +14,11 @@ namespace Survivor.UI
             base.Setup();
             closeButton.onClick.AddListener(Close);
         }
+
+        public override void Close()
+        {
+            base.Close();
+            LoadingManager.Instance.LoadScene("HomeScene").Forget();
+        }
     }
 }

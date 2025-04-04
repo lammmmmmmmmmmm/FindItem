@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using _Global.EventChannels.ScriptableObjects;
 using Bot.Entities.Human;
 using Bot.Entities.Monster;
 using Map;
@@ -14,6 +16,8 @@ namespace Bot.Entities {
         [SerializeField] private MonsterBotConfigSO monsterBotConfigSO;
         [SerializeField] private HumanBotController humanBotPrefab;
         [SerializeField] private MonsterBotController monsterBotPrefab;
+
+        [SerializeField] private VoidEventChannelSO OnAllHumanDie;
         
         private readonly List<HumanBotController> _humanBots = new();
         private readonly List<MonsterBotController> _monsterBots = new();
@@ -26,6 +30,7 @@ namespace Bot.Entities {
                 Vector3 spawnPosition = GetRandomSpawnPosition(_humanSpawnArea);
                 var humanBot = Instantiate(humanBotPrefab, spawnPosition, Quaternion.identity);
                 humanBot.SetConfig(humanBotConfigSO);
+                humanBot.Add(this);
                 _humanBots.Add(humanBot);
             }
             
@@ -44,7 +49,7 @@ namespace Bot.Entities {
         }
         
         private Vector3 GetRandomSpawnPosition(Collider2D spawnArea) {
-            Vector2 randomPoint = Random.insideUnitCircle * spawnArea.bounds.extents.x;
+            Vector2 randomPoint = UnityEngine.Random.insideUnitCircle * spawnArea.bounds.extents.x;
             Vector3 spawnPosition = new Vector3(randomPoint.x, randomPoint.y, 0);
             spawnPosition += spawnArea.transform.position;
 
@@ -79,6 +84,24 @@ namespace Bot.Entities {
         public void SetBotConfig(HumanBotConfig humanBotConfig, MonsterBotConfigSO monsterBotConfig) {
             humanBotConfigSO = humanBotConfig;
             monsterBotConfigSO = monsterBotConfig;
+        }
+
+        public void RemoveBot(HumanBotController bot)
+        {
+            Debug.Log("Human Bot " + _humanBots.Count);
+            _humanBots.Remove(bot);
+            if (_humanBots.Count == 0)
+            {
+                OnAllHumanDie.RaiseEvent();
+            }
+        }
+
+        public void SetAllHumanDieEvent(Action callback = null)
+        {
+            OnAllHumanDie.OnEventRaised += () =>
+            {
+                callback?.Invoke();
+            };
         }
     }
 }

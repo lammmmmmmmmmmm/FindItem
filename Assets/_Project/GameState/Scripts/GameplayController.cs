@@ -11,6 +11,7 @@ namespace GameState {
     public class GameplayController : MonoBehaviour {
         private GameMode gameMode;
         private UIIngame uiIngame;
+        private PlayerRole playerRole;
 
         [Header("Player")]
         [SerializeField] private GameObject humanPlayer;
@@ -57,18 +58,21 @@ namespace GameState {
 
         private void SetPlayerRole(PlayerRole playerRole)
         {
+            this.playerRole = playerRole;
             Debug.Log("Update Role");
             if (playerRole == PlayerRole.Imposter)
             {
                 humanPlayer.SetActive(true);
                 monsterPlayer.SetActive(false);
                 virtualCamera.Follow = humanPlayer.transform;
+                botSpawner.SetAllHumanDieEvent(null);
             }
             else
             {
                 humanPlayer.SetActive(false);
                 monsterPlayer.SetActive(true);
                 virtualCamera.Follow = monsterPlayer.transform;
+                botSpawner.SetAllHumanDieEvent(() => GameManager.Instance.OnWin());
             }
 
             uiIngame.SetRoleUI(playerRole);
@@ -78,6 +82,18 @@ namespace GameState {
         private void SpawnMap()
         {
             mapSpawner.SpawnMap();
+        }
+
+        public void OnFullItem()
+        {
+            if (playerRole == PlayerRole.Imposter)
+            {
+                GameManager.Instance.OnWin();
+            }
+            else
+            {
+                GameManager.Instance.OnLose();
+            }
         }
     }
 }

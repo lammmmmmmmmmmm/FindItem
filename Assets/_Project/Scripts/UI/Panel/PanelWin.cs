@@ -34,7 +34,7 @@ namespace Survivor.UI
         {
             base.Open(panelData);
 
-            PlayerRole playerRole = panelData.Get<PlayerRole>(PanelDataKey.PlayerRole);
+            //PlayerRole playerRole = panelData.Get<PlayerRole>(PanelDataKey.PlayerRole);
 
             numCoin = GameConfigs.COIN_WIN;
             numDiamond = GameConfigs.DIAMOND_WIN;
@@ -57,6 +57,12 @@ namespace Survivor.UI
         {
             UIManager.Instance.EffectManager.SpawnDiamond(bonusClaimBtn.transform.position).Forget();
             Close();
+            LoadingManager.Instance.LoadScene("HomeScene").Forget();
+        }
+
+        public override void Close()
+        {
+            base.Close();
             LoadingManager.Instance.LoadScene("HomeScene").Forget();
         }
     }

@@ -29,21 +29,18 @@ public class PlayerAttack : MonoBehaviour
     {
         _chosenTarget = botObject.GetComponent<HumanBotController>();
         EnableRange(true);
-        Debug.Log("Have Bot");
     }
 
     private void RemoveBot()
     {
         _chosenTarget = null;
         EnableRange(false);
-        Debug.Log("Not Have Bot");
     }
 
     public void Attack()
     {
         if (_chosenTarget == null || isAttacking)
         {
-            Debug.Log("Not Have Imposter");
             return;
         }
         isAttacking = true;

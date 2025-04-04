@@ -1,6 +1,7 @@
 using System;
 using Survivor.Gameplay;
 using Survivor.Patterns;
+using Survivor.UI;
 
 public class GameManager : Singleton<GameManager>
 {
@@ -32,12 +33,12 @@ public class GameManager : Singleton<GameManager>
 
     public void OnWin()
     {
-
+        PanelManager.Instance.OpenPanel<PanelWin>();
     }
 
     public void OnLose()
     {
-
+        PanelManager.Instance.OpenPanel<PanelLose>();
     }
 }
 

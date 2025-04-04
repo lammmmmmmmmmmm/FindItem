@@ -16,6 +16,8 @@ namespace Bot.Entities.Human {
         private HumanBotConfig _config;
         private Hide _humanBotHide;
 
+        private BotSpawner _spawner;
+
         private bool _shouldGoToItem;
 
         private StateMachine _stateMachine;
@@ -79,8 +81,14 @@ namespace Bot.Entities.Human {
             transform.position = position;
 
             DOVirtual.DelayedCall(0.5f, () => {
+                _spawner.RemoveBot(this);
                 Destroy(gameObject);
             }).SetLink(gameObject);
+        }
+
+        public void Add(BotSpawner botSpawner)
+        {
+            _spawner = botSpawner;
         }
 
         public void SetConfig(HumanBotConfig config) {
