@@ -12,11 +12,12 @@ namespace Survivor.UI
         [SerializeField] private TextMeshProUGUI textQuantity;
         [SerializeField] private Image icon;
 
-        private int _displayValue;
+        private int _displayValue = 0;
 
         private void Start()
         {
             button.onClick.AddListener(OnClickResource);
+            UpdateQuantity();
         }
 
         private void OnClickResource()
@@ -26,7 +27,12 @@ namespace Survivor.UI
 
         public void UpdateQuantity(float delay = 0)
         {
-
+            int curValue = DataManager.Instance.PlayerData.resourcesData[resourceType];
+            if (curValue != _displayValue)
+            {
+                _displayValue = curValue;
+                textQuantity.text = curValue.ToString();
+            }
         }
     }
 }

@@ -23,7 +23,7 @@ namespace Survivor.UI
 
         }
 
-        public virtual void Open(PanelData panelData)
+        public virtual void Open(PanelData panelData = null)
         {
             _panelData = panelData;
             PlayTween(listOpenTween, OnOpenCompleted).Forget();
