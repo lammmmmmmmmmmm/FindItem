@@ -981,7 +981,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   data:
-    dataString: UEsDBBQAAAgIAAA4IezuYzMHWgIAABIFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQF1VE1z2jAQ/SuMzk3HBJJAb61DSA9JmJBOLr4o8hprkCWPPgIkw3/vrmxjh05PiPfe7r5drfzJpHY1CG/s0sr8weTAfowYndm3UU/ew55vjF7LD+g0rzL3JYl41DxzLw3iYwpzpgJvpfipN4rECYJBy8LYapFvIDXOO4QLrhwgZY2naI3Q54jt8ediTiEHPF3e0OkDT/NkdMSjAO3B9tJO2MkaVdBC8aqGnCz34lmnnjUyjc20CjIujFLStU6YP9Sx05TXLmAfKMglx85iedKXIDelJ5fD4KeicOBbS5YfbqXFATVZ2S/TTK3ibtv4eucqUJ3Lq+voqUn68A9/MY50YU1139UdJ1TDl1Jsn/lBcOcHYx3Ct1+NB73jasvfFLyWoB/N0pqgcyS9DRQaHFze9n9PraUliG2PN1bPwFD//3Koh2Psfp8qWb0R9X3aAGtl4rzj1YPFm/mNhuNiuDYFouTij4MXvhluUEvcSes8Um2Xmuy9mWBJyhZxZtRN8KmxGiLcmq5Bc+UPK0zjz6/wjBuUPWPuOL2VtnjLdU/gLCTCvT5JzqiV2Z0uy5Vm9wCufApeSQ29aSIecU6p0brZsOFMurB1sAUXg7BNkPnX1WLJBGDCk2I6ERNxNeMXMJ3fiOnVtRjP5jfX44LF3ZMa++Rq1Rhtx4O3pvvkGves+4SMlpbXcdtzy3dL+VGZwcilLsxaWAD91GQ4GQeLRfBV5otc4oDW4L3U8b7ZZ8aUEVvIs1OiLHa62HvLsz5Lxmr5bjwhGUvjNyNjBJ92eWXhXcKOinfJjuz4F1BLAwQUAAAICAAAOCHsVMrS5W0AAAB4AAAACQAkAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAatWKkstKs7Mz1OyUjDRM9IzNNdRUEovSizIKAaKGII4pZkpIHa0koFxaqpxokGaiXGycbKpRaJuqomlebKJqVmyoYWluZlhmlIsUH1JZUGqX2JuKkRPQGJJRlpmXkpmXrqee1FmijvIaKXYWgBQSwECLQAUAAAICAAAOCHs7mMzB1oCAAASBQAACwAkAAAAAAAAAAAAAAAAAAAAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwECLQAUAAAICAAAOCHsVMrS5W0AAAB4AAAACQAkAAAAAAAAAAAAAACnAgAAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsFBgAAAAACAAIAuAAAAF8DAAAAAA==
+    dataString: UEsDBBQAAAgIAAA4IewjfYX0WgIAABIFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQF1VE1z2jAQ/SuMzk3HBEJCb61DSA9JmJBOLr4o8hprkCWPPgIkw3/vrmxjh05PiPfe7r5drfzJpHY1CG/s0sr8weTAfowYndm3UU/ew55vjF7LD+g0rzL3JYl41DxzLw3iYwpzpgJvpfipN4rECYJBy8LYapFvIDXOO4QLrhwgZY2naI3Q54jt8ediTiEHPF1e0+kDT/NkdMSjAO3B9tJO2MkaVdBC8aqGnCz34lmnnjUyjc20CjIujFLStU6YP9Sx05TXLmAfKMglx85iedKXIDelJ5fD4KeicOBbS5YfbqXFATVZ2S/TTK3ibtv4eucqUJ3Lq1n01CR9+Ie/GEe6sKa67+qOE6rhSym2z/wguPODsQ7h26/Gg95xteVvCl5L0I9maU3QOZLeBgoNDi5v+7+n1tISxLbHG6tnYKj/fznUwzF2v0+VrN6I+j5tgLUycd7x6sHizfxGw3ExXJsCUXLxx8EL3ww3qCXupHUeqbZLTfbeTLAkZYs4M+om+NRYDRFuTdegufKHFabx51d4xg3KnjF3nN5KW7zluidwFhLhXp8kZ9TK7E6X5UqzewBXPgWvpIbeNBGPOKfUaN1s2HAmXdg62IKLQdgmyPzrarFkAjDhSTGdiIm4uuEXMJ1fi+nVTIxv5tezccHi7kmNfXK1aoy248Fb031yjXvWfUJGS8vruO255bul/KjMYORSF2YtLIB+ajKcjIPFIvgq80UucUBr8F7qeN/sM2PKiC3k2SlRFjtd7L3lWZ8lY7V8N56QjKXxm5Exgk+7vLLwLmFHxbtkR3b8C1BLAwQUAAAICAAAOCHsVMrS5W0AAAB4AAAACQAkAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAatWKkstKs7Mz1OyUjDRM9IzNNdRUEovSizIKAaKGII4pZkpIHa0koFxaqpxokGaiXGycbKpRaJuqomlebKJqVmyoYWluZlhmlIsUH1JZUGqX2JuKkRPQGJJRlpmXkpmXrqee1FmijvIaKXYWgBQSwECLQAUAAAICAAAOCHsI32F9FoCAAASBQAACwAkAAAAAAAAAAAAAAAAAAAAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwECLQAUAAAICAAAOCHsVMrS5W0AAAB4AAAACQAkAAAAAAAAAAAAAACnAgAAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsFBgAAAAACAAIAuAAAAF8DAAAAAA==
     upgradeData: 
     file_cachedStartup: {fileID: 0}
     data_cachedStartup: 
@@ -1226,17 +1226,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &881643332 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8170153791668043265, guid: 0d230cc8be529a542a08cb878ab14b18, type: 3}
-  m_PrefabInstance: {fileID: 1969743847}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1969743851}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a47f546fc70ec8428172694e78e4288, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &892147398
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1251,7 +1240,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8162813692679426955, guid: ce82e64918ae2d94c9580ea65b873367, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8613067030680555624, guid: ce82e64918ae2d94c9580ea65b873367, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1716,7 +1705,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 1
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 519420031}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -2816,53 +2805,31 @@ PrefabInstance:
       propertyPath: m_Name
       value: Floating Joystick
       objectReference: {fileID: 0}
+    - target: {fileID: 8170153791668043269, guid: 0d230cc8be529a542a08cb878ab14b18, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8170153791668043269, guid: 0d230cc8be529a542a08cb878ab14b18, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1969743852}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0d230cc8be529a542a08cb878ab14b18, type: 3}
 --- !u!224 &1969743848 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8170153791668043268, guid: 0d230cc8be529a542a08cb878ab14b18, type: 3}
   m_PrefabInstance: {fileID: 1969743847}
   m_PrefabAsset: {fileID: 0}
---- !u!224 &1969743849 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 8170153792821263258, guid: 0d230cc8be529a542a08cb878ab14b18, type: 3}
-  m_PrefabInstance: {fileID: 1969743847}
-  m_PrefabAsset: {fileID: 0}
---- !u!224 &1969743850 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 8170153791961219456, guid: 0d230cc8be529a542a08cb878ab14b18, type: 3}
-  m_PrefabInstance: {fileID: 1969743847}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1969743851 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8170153791668043269, guid: 0d230cc8be529a542a08cb878ab14b18, type: 3}
-  m_PrefabInstance: {fileID: 1969743847}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1969743852
+--- !u!114 &1969743849 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 8170153791668043265, guid: 0d230cc8be529a542a08cb878ab14b18, type: 3}
+  m_PrefabInstance: {fileID: 1969743847}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1969743851}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9fca4100a7477741b3973b4ff2c405f, type: 3}
+  m_Script: {fileID: 11500000, guid: 7a47f546fc70ec8428172694e78e4288, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  handleRange: 1
-  deadZone: 0
-  axisOptions: 0
-  snapX: 0
-  snapY: 0
-  background: {fileID: 1969743849}
-  handle: {fileID: 1969743850}
 --- !u!1 &1988819314
 GameObject:
   m_ObjectHideFlags: 0
@@ -3270,7 +3237,7 @@ PrefabInstance:
     - target: {fileID: 1912305680861061408, guid: c099d5dfb259eca4389e9a1cf9d69b28, type: 3}
       propertyPath: joystick
       value: 
-      objectReference: {fileID: 881643332}
+      objectReference: {fileID: 1969743849}
     - target: {fileID: 4291368071363516363, guid: c099d5dfb259eca4389e9a1cf9d69b28, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -3331,7 +3298,7 @@ PrefabInstance:
     - target: {fileID: 184219710167024967, guid: 8a9f4f38b3b4c1642975bf6531451969, type: 3}
       propertyPath: joystick
       value: 
-      objectReference: {fileID: 881643332}
+      objectReference: {fileID: 1969743849}
     - target: {fileID: 3033706888114270110, guid: 8a9f4f38b3b4c1642975bf6531451969, type: 3}
       propertyPath: m_Color.b
       value: 0
