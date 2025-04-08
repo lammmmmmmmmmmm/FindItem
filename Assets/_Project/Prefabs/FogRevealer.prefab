@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4919772525916844146}
   - component: {fileID: 1976881292610234934}
   m_Layer: 6
-  m_Name: FogOfWall
+  m_Name: FogRevealer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f23003224c68fb2448e739c65706197a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ViewRadius: 20
+  ViewRadius: 18
   SoftenDistance: 1
   ViewAngle: 360
   UnobscuredRadius: 0.5

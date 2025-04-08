@@ -7,7 +7,7 @@ namespace _Global {
         }
         
         public bool Tick(float deltaTime) {
-            CurrentTime -= deltaTime;
+            //CurrentTime -= deltaTime;
             if (CurrentTime <= 0f) {
                 CurrentTime = 0f;
                 return true; // Timer has finished

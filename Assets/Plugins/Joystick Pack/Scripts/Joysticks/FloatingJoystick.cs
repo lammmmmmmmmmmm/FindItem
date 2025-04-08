@@ -1,11 +1,15 @@
-﻿using UnityEngine.EventSystems;
+﻿using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class FloatingJoystick : Joystick
 {
+    private Vector3 posJoystick;
+
     protected override void Start()
     {
         base.Start();
         background.gameObject.SetActive(true);
+        posJoystick = background.transform.position;
     }
 
     public override void OnPointerDown(PointerEventData eventData)
@@ -17,5 +21,6 @@ public class FloatingJoystick : Joystick
     public override void OnPointerUp(PointerEventData eventData)
     {
         base.OnPointerUp(eventData);
+        background.transform.position = posJoystick;
     }
 }
