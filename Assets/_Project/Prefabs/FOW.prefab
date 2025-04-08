@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UpdateMethod: 1
   UsingSoftening: 1
-  FogType: 1
+  FogType: 0
   FogFade: 4
   BlendType: 0
   EdgeSoftenDistance: 0
@@ -55,7 +55,7 @@ MonoBehaviour:
   InnerSoftenAngle: 3
   AllowBleeding: 0
   SightExtraAmount: -0.01
-  MaxFogDistance: 10000
+  MaxFogDistance: 0
   PixelateFog: 0
   WorldSpacePixelate: 0
   PixelDensity: 2
@@ -90,18 +90,18 @@ MonoBehaviour:
   ConstantTextureBlurQuality: 1
   ConstantTextureBlurAmount: 0
   UseWorldBounds: 0
-  WorldBoundsSoftenDistance: 3.48
+  WorldBoundsSoftenDistance: 1.62
   WorldBoundsInfluence: 0.386
   WorldBounds:
-    m_Center: {x: 0, y: 0, z: 0}
-    m_Extent: {x: 50, y: 25, z: 0.5}
+    m_Center: {x: 24.907299, y: 0, z: 0}
+    m_Extent: {x: 33.3766, y: 25, z: 0.5}
   UseMiniMap: 0
   MiniMapColor: {r: 0.4, g: 0.4, b: 0.4, a: 0.95}
   UIImage: {fileID: 0}
-  revealerMode: 0
-  MaxNumRevealersPerFrame: 3
-  MaxPossibleRevealers: 256
-  MaxPossibleSegmentsPerRevealer: 128
+  revealerMode: 1
+  MaxNumRevealersPerFrame: 1
+  MaxPossibleRevealers: 128
+  MaxPossibleSegmentsPerRevealer: 64
   is2D: 1
   gamePlane: 0
   FogOfWarMaterial: {fileID: 0}

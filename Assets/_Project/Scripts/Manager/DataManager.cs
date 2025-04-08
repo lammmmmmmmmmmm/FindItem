@@ -119,10 +119,16 @@ public class DataManager : Singleton<DataManager>
     public void SetPlayerName(string playerName)
     {
         PlayerData.name = playerName;
+        PlayerData = _playerData;
     }
     #endregion
 
     #region Settings Data
+    private void SaveSettingsData()
+    {
+        SettingsData = _settingsData;
+    }
+
     public bool GetMusic()
     {
         return SettingsData.music;
@@ -138,16 +144,19 @@ public class DataManager : Singleton<DataManager>
     public void SetMusic(bool isEnabled)
     {
         SettingsData.music = isEnabled;
+        SaveSettingsData();
     }
     
     public void SetSound(bool isEnabled)
     {
         SettingsData.sound = isEnabled;
+        SaveSettingsData();
     }
     
     public void SetVibration(bool isEnabled)
     {
         SettingsData.vibration = isEnabled;
+        SaveSettingsData();
     }
     #endregion
 
@@ -156,7 +165,8 @@ public class DataManager : Singleton<DataManager>
     {
         return GetGameModeData(gameMode).totalDie;
     }
-        public int GetTotalSurvived(GameMode gameMode)
+
+    public int GetTotalSurvived(GameMode gameMode)
     {
         return GetGameModeData(gameMode).totalSurvived;
     }

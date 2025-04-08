@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -8,7 +9,7 @@ namespace Survivor.UI {
         [SerializeField] private Image musicImage;
         [SerializeField] private Image sfxImage;
         
-        [SerializeField] private InputField nameInputField;
+        [SerializeField] private TMP_InputField nameInputField;
         [SerializeField] private GameObject homeObject;
         [SerializeField] private GameObject ingameObject;
 
@@ -21,6 +22,7 @@ namespace Survivor.UI {
             homeObject.SetActive(!inGame);
             ingameObject.SetActive(inGame);
 
+            nameInputField.onEndEdit.AddListener(UpdateName);
         }
 
         public override void Open(PanelData panelData) {
@@ -51,7 +53,7 @@ namespace Survivor.UI {
             //TODO: update UI
         }
 
-        public void UpdateName(string playerName) {
+        private void UpdateName(string playerName) {
             if (string.IsNullOrEmpty(playerName)) return;
             
             DataManager.Instance.SetPlayerName(playerName);

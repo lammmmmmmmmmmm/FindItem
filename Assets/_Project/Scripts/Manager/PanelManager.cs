@@ -55,7 +55,7 @@ public class PanelManager : Singleton<PanelManager>
 
     public void OpenPanel(string name, PanelData panelData = null)
     {
-        OpenPanel<PanelBase>(name);
+        OpenPanel<PanelBase>(name).Open();
     }
 
     public void ClosePanel(PanelBase panel)
