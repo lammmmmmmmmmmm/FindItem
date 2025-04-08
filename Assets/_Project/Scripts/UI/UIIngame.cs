@@ -10,4 +10,14 @@ public class UIIngame : MonoBehaviour
         uiForImposter.SetActive(playerRole == PlayerRole.Imposter);
         uiForMonster.SetActive(playerRole == PlayerRole.Monster);
     }
+
+    public void SetWaitingUI()
+    {
+
+    }
+
+    public void SetStartUI()
+    {
+
+    }
 }

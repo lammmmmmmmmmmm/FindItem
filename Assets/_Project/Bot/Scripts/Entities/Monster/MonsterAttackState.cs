@@ -33,7 +33,7 @@ namespace Bot.Entities.Monster {
         }
 
         private void Attack() {
-            _monsterBotController.transform.DOScale(Vector2.one * 2f, 0.1f).SetLoops(4, LoopType.Yoyo).OnComplete(() => {
+            _monsterBotController.transform.DOScale(Vector2.one * 2f, 0.1f).SetLoops(10, LoopType.Yoyo).OnComplete(() => {
                 // target could be killed by other monster before the animation is done
                 if (!_chosenTarget) return;
                 

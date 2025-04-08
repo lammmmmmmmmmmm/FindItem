@@ -45,7 +45,11 @@ namespace Survivor.UI
 
     public enum PanelDataKey : byte
     {
-        //
-        PlayerRole,
+        // Enum
+        PlayerRole = 0,
+        
+
+        // Script
+        BoosterController = 30,
     }
 }

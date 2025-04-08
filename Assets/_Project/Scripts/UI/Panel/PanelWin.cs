@@ -25,9 +25,9 @@ namespace Survivor.UI
         protected override void Setup()
         {
             base.Setup();
-            claimBtn.onClick.AddListener(ClickClaim);
-            closeBtn.onClick.AddListener(ClickClaim);
-            bonusClaimBtn.onClick.AddListener(ClickBonusClaim);
+            claimBtn.onClick.AddListener(() => ClickClaim().Forget());
+            closeBtn.onClick.AddListener(() => ClickClaim().Forget());
+            bonusClaimBtn.onClick.AddListener(() => ClickBonusClaim().Forget());
         }
 
         public override void Open(PanelData panelData)
@@ -44,18 +44,19 @@ namespace Survivor.UI
 
             bonusClaimBtn.gameObject.SetActive(false);
             closeBtn.gameObject.SetActive(false);
+            claimBtn.gameObject.SetActive(true);
         }
 
-        private void ClickClaim()
+        private async UniTaskVoid ClickClaim()
         {
-            UIManager.Instance.EffectManager.SpawnCoins(claimBtn.transform.position).Forget();
+            await UIManager.Instance.EffectManager.SpawnCoins(claimBtn.transform.position);
             Close();
             LoadingManager.Instance.LoadScene("HomeScene").Forget();
         }
 
-        private void ClickBonusClaim()
+        private async UniTaskVoid ClickBonusClaim()
         {
-            UIManager.Instance.EffectManager.SpawnDiamond(bonusClaimBtn.transform.position).Forget();
+            await UIManager.Instance.EffectManager.SpawnDiamond(bonusClaimBtn.transform.position);
             Close();
             LoadingManager.Instance.LoadScene("HomeScene").Forget();
         }

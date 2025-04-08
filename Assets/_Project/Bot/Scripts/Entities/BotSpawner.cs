@@ -88,7 +88,6 @@ namespace Bot.Entities {
 
         public void RemoveBot(HumanBotController bot)
         {
-            Debug.Log("Human Bot " + _humanBots.Count);
             _humanBots.Remove(bot);
             if (_humanBots.Count == 0)
             {

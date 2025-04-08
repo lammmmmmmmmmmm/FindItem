@@ -24,6 +24,7 @@ namespace Character {
             transform.position = position;
 
             DOVirtual.DelayedCall(0.5f, () => {
+                GameManager.Instance.OnKilled();
                 onPlayerDieEvent.Invoke();
                 gameObject.SetActive(false);
             });

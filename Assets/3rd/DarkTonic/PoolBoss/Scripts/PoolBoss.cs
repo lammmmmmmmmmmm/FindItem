@@ -121,6 +121,7 @@ namespace DarkTonic.PoolBoss {
             }
 
             Initialize();
+            DontDestroyOnLoad(this);
         }
 
         void OnDestroy()

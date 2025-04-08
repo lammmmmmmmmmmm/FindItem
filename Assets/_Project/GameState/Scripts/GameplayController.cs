@@ -1,6 +1,9 @@
 using System;
 using Bot.Entities;
+using Character;
 using Cinemachine;
+using Cysharp.Threading.Tasks;
+using FOW;
 using Item;
 using Map;
 using Survivor.Gameplay;
@@ -12,6 +15,8 @@ namespace GameState {
         private GameMode gameMode;
         private UIIngame uiIngame;
         private PlayerRole playerRole;
+        private float waitingTime = 10;
+        private BoosterController boosterController;
 
         [Header("Player")]
         [SerializeField] private GameObject humanPlayer;
@@ -29,6 +34,7 @@ namespace GameState {
         private void Awake()
         {
             uiIngame = FindObjectOfType<UIIngame>();
+            boosterController = new BoosterController(this);
         }
 
         private void Start() {
@@ -74,13 +80,28 @@ namespace GameState {
             }
 
             uiIngame.SetRoleUI(playerRole);
+            WaitingStartGame().Forget();
+        }
+
+        private async UniTaskVoid WaitingStartGame()
+        {
+            mapSpawner.SpawnMap();
+            uiIngame.SetWaitingUI();
+            countDownTimer.SetTimeToWait(gameModeSO.PlayTime);
+
+            PanelData panelData = new PanelData();
+            panelData.Add(PanelDataKey.PlayerRole, playerRole);
+            panelData.Add(PanelDataKey.BoosterController, boosterController);
+            PanelManager.Instance.OpenPanel<PanelChooseBooster>(panelData);
+
+            await UniTask.Delay((int)(waitingTime * 1000));
+            PanelManager.Instance.ClosePanel<PanelChooseBooster>();
             StartGame();
         }
 
         private void StartGame()
         {
-            mapSpawner.SpawnMap();
-            countDownTimer.SetTimeToWait(gameModeSO.PlayTime);
+            countDownTimer.SetRunningTime(true);
         }
 
         public void OnFullItem()
@@ -94,5 +115,36 @@ namespace GameState {
                 GameManager.Instance.OnLose();
             }
         }
+
+        #region Control Booster
+        public void EnableLight(bool enabled = false)
+        {
+            FogOfWarWorld fow = FindObjectOfType<FogOfWarWorld>();
+            if (!fow)
+                return;
+
+            fow.enabled = enabled;
+        }
+
+        public void AddTime(float time = 10f)
+        {
+            countDownTimer.AddTime(time);
+        }
+
+        public void BoostSpeed()
+        {
+            PlayerMovement playerMovement = (playerRole == PlayerRole.Imposter) ? 
+                humanPlayer.GetComponent<PlayerMovement>() :
+                monsterPlayer.GetComponent<PlayerMovement>();
+
+            playerMovement?.BoostSpeed();
+        }
+
+        public void MoreItem()
+        {
+            itemSpawner.SetNumberOfItemsToSpawn(20);
+            itemSpawner.SpawnItems();
+        }
+        #endregion
     }
 }
