@@ -9,7 +9,7 @@ public class FloatingJoystick : Joystick
     {
         base.Start();
         background.gameObject.SetActive(true);
-        posJoystick = background.transform.position;
+        posJoystick = background.transform.localPosition;
     }
 
     public override void OnPointerDown(PointerEventData eventData)
@@ -21,6 +21,6 @@ public class FloatingJoystick : Joystick
     public override void OnPointerUp(PointerEventData eventData)
     {
         base.OnPointerUp(eventData);
-        background.transform.position = posJoystick;
+        background.transform.localPosition = posJoystick;
     }
 }
