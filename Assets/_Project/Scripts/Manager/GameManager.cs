@@ -33,11 +33,15 @@ public class GameManager : Singleton<GameManager>
 
     public void OnWin()
     {
+        DataManager.Instance.SetGameModeData(gameMode, true);
+
         PanelManager.Instance.OpenPanel<PanelWin>();
     }
 
     public void OnLose()
     {
+        DataManager.Instance.SetGameModeData(gameMode, false);
+
         PanelManager.Instance.OpenPanel<PanelLose>();
     }
 

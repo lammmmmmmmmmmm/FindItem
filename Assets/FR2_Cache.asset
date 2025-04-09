@@ -15,7 +15,20 @@ MonoBehaviour:
   _autoRefresh: 0
   _curCacheVersion: 2.1
   _disabled: 0
-  AssetList: []
+  AssetList:
+  - guid: d881fe1d5e237964895c0d4c2c4009f8
+    type: 1
+    m_fileInfoHash: 
+    m_assetbundle: 
+    m_addressable: 
+    m_atlas: 
+    m_fileSize: 0
+    m_assetChangeTS: 0
+    m_fileInfoReadTS: 1744185478
+    m_fileWriteTS: 0
+    m_cachefileWriteTS: 0
+    refreshStamp: 109
+    UseGUIDsList: []
   setting:
     alternateColor: 1
     excludeTypes: 0
