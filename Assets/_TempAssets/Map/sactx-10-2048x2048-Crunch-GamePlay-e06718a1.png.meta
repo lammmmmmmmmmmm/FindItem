@@ -131,7 +131,7 @@ TextureImporter:
         width: 116
         height: 127
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -152,7 +152,7 @@ TextureImporter:
         width: 116
         height: 127
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -160,6 +160,90 @@ TextureImporter:
       bones: []
       spriteID: 2cdb167d699b4bd4db529127628a9c33
       internalID: -223149493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sactx-10-2048x2048-Crunch-GamePlay-e06718a1_2
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 652
+        width: 617
+        height: 197
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae442f168a919094c96f4479760dc59b
+      internalID: 274399393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sactx-10-2048x2048-Crunch-GamePlay-e06718a1_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 439
+        width: 618
+        height: 212
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8aeae28df01e9d46bfe08837ed2163c
+      internalID: 1300860152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sactx-10-2048x2048-Crunch-GamePlay-e06718a1_4
+      rect:
+        serializedVersion: 2
+        x: 1085
+        y: 654
+        width: 645
+        height: 193
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4592e98cb51a94e41906725c1f5ba199
+      internalID: -1504523669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sactx-10-2048x2048-Crunch-GamePlay-e06718a1_5
+      rect:
+        serializedVersion: 2
+        x: 1084
+        y: 433
+        width: 647
+        height: 214
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41bf18a6d8755164e9e47a979f1cf190
+      internalID: 240584342
       vertices: []
       indices: 
       edges: []
@@ -177,6 +261,10 @@ TextureImporter:
     nameFileIdTable:
       sactx-10-2048x2048-Crunch-GamePlay-e06718a1_0: 384834554
       sactx-10-2048x2048-Crunch-GamePlay-e06718a1_1: -223149493
+      sactx-10-2048x2048-Crunch-GamePlay-e06718a1_2: 274399393
+      sactx-10-2048x2048-Crunch-GamePlay-e06718a1_3: 1300860152
+      sactx-10-2048x2048-Crunch-GamePlay-e06718a1_4: -1504523669
+      sactx-10-2048x2048-Crunch-GamePlay-e06718a1_5: 240584342
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

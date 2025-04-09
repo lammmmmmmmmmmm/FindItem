@@ -15,7 +15,7 @@ namespace _Global {
         private readonly WaitForSeconds _waitForSeconds = new(1f);
         public Action<GameObject> OnNewTargetFound;
         public Action<GameObject> OnTargetInRange;
-        public Action OnTargetLost;
+        public Action OnTargetLost; 
         
         public Transform Target { get; private set; }
         
