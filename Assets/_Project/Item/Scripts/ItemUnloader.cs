@@ -28,7 +28,7 @@ namespace Item {
                 if (other.CompareTag("Player")) {
                     var payload = new ItemUnloadPayload {
                         CurrentSpotIndex = _currentSpotIndex,
-                        UnloadPosition = spots[_currentSpotIndex].transform.position
+                        UnloadPosition = transform.position
                     };
                     onItemUnloadedEventWithPlayer.Invoke(payload);
                 }
