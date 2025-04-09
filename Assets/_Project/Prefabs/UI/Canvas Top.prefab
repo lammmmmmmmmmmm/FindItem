@@ -658,12 +658,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnRange: {x: 1, y: 1}
   duration: 0.5
-  coinPrefab: {fileID: 0}
+  coinPrefab: {fileID: 4312074772648968141, guid: ff97e7be91dbd3a41b06c95ce71c96c7, type: 3}
   coinAmount: 5
-  targetCoinBar: {fileID: 0}
-  diamondPrefab: {fileID: 0}
+  targetCoinBar: {fileID: 3661116293551906219}
+  diamondPrefab: {fileID: 7527074840120439866, guid: 5569f7b46ec35f34885e9a7ce8a740aa, type: 3}
   diamondAmount: 5
-  targetDiamondBar: {fileID: 0}
+  targetDiamondBar: {fileID: 1555025895487031991}
 --- !u!1 &4174912485509048987
 GameObject:
   m_ObjectHideFlags: 0

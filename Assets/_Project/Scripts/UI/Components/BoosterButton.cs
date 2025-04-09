@@ -18,16 +18,15 @@ namespace Survivor.UI
 
         private void Start()
         {
-            OnClickCompleted = null;
             button.onClick.AddListener(OnClick);
         }
 
         public void SetButton(BoosterData boosterData, PlayerRole playerRole, Action<BoosterType> action)
         {
-            OnClickCompleted = null;
-            OnClickCompleted += action;
+            OnClickCompleted = action;
 
             boosterType = boosterData.boosterType;
+            button.gameObject.SetActive(true);
 
             iconBooster.sprite = playerRole == PlayerRole.Imposter ? boosterData.iconImposter : boosterData.iconMonster;
             textNameBooster.text = boosterData.boosterName;
@@ -37,6 +36,7 @@ namespace Survivor.UI
 
         private void OnClick()
         {
+            button.gameObject.SetActive(false);
             OnClickCompleted?.Invoke(boosterType);
         }
     }

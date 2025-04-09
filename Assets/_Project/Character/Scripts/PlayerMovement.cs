@@ -12,17 +12,26 @@ namespace Character {
         private Rigidbody2D _rb;
         private FogOfWall _fogOfWall;
 
+        private bool canMove;
+
         private void Awake() {
             _rb = GetComponent<Rigidbody2D>();
             _fogOfWall = GetComponentInChildren<FogOfWall>();
 
             CurrentMoveSpeed = defaultMoveSpeed;
+            canMove = true;
         }
 
         private void FixedUpdate() {
+            if (!canMove)
+            {
+                _rb.velocity = Vector2.zero;
+                return;
+            }
+
             if (joystick.Direction.y != 0 || joystick.Direction.x != 0) {
                 Vector2 moveDirection = new Vector2(joystick.Direction.x, joystick.Direction.y);
-                _rb.velocity = moveDirection * 10f; // Adjust speed as needed
+                _rb.velocity = moveDirection * CurrentMoveSpeed; // Adjust speed as needed
             
                 _fogOfWall?.UpdateRotation(moveDirection);
             } else {
@@ -30,8 +39,15 @@ namespace Character {
             }
         }
         
-        public void SetMoveSpeed(float moveSpeed) {
-            CurrentMoveSpeed = moveSpeed;
+        public void SetCanMove(bool canMove)
+        {
+            this.canMove = canMove;
+        }
+
+        public void BoostSpeed()
+        {
+            CurrentMoveSpeed = defaultMoveSpeed * 1.3f;
+            Debug.Log("BoostSpeed");
         }
     }
 }

@@ -28,7 +28,18 @@ namespace GameState {
             } else {
                 _timer.SetTime(time);
             }
-            _running = true;
+
+            _running = false;
+        }
+
+        public void SetRunningTime(bool running)
+        {
+            _running = running;
+        }
+
+        public void AddTime(float time)
+        {
+            _timer?.AddTime(time);
         }
         
         public void StopTimer() {

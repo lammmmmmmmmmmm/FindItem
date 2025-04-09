@@ -19,5 +19,10 @@ namespace _Global {
             TimeToWait = time;
             CurrentTime = time;
         }
+        
+        public void AddTime(float time)
+        {
+            CurrentTime += time;
+        }
     }
 }

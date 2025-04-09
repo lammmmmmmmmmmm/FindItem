@@ -64,6 +64,20 @@ public class PanelManager : Singleton<PanelManager>
         Destroy(panel);
     }
 
+    public void ClosePanel<T>() where T : PanelBase
+    {
+        PanelBase panelNeedClose = null;
+        foreach (var panel in listPanelRelease)
+        {
+            if (panel is T)
+            {
+                panelNeedClose = panel;
+                panelNeedClose.Close();
+                return;
+            }
+        }
+    }
+
     public async UniTask PlayTween(TweenData tweenData)
     {
         Transform target = tweenData.target;

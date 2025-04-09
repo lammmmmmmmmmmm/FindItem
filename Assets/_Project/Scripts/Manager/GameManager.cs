@@ -33,6 +33,16 @@ public class GameManager : Singleton<GameManager> {
     public void OnLose() {
         PanelManager.Instance.OpenPanel<PanelLose>();
     }
+
+    public void OnTimeUp()
+    {
+        PanelManager.Instance.OpenPanel<PanelMoreTime>();
+    }
+
+    public void OnKilled()
+    {
+        PanelManager.Instance.OpenPanel<PanelRevive>();
+    }
 }
 
 public enum PlayerRole {

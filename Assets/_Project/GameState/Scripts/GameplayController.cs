@@ -1,18 +1,22 @@
 using System;
 using Bot.Entities;
+using Character;
 using Cinemachine;
+using Cysharp.Threading.Tasks;
+using FOW;
 using Item;
 using Map;
 using Survivor.Gameplay;
 using Survivor.UI;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace GameState {
     public class GameplayController : MonoBehaviour {
         private GameMode _gameMode;
         private UIIngame _uiInGame;
         private PlayerRole _playerRole;
+        private float waitingTime = 10;
+        private BoosterController boosterController;
 
         [Header("Player")]
         [SerializeField] private GameObject humanPlayer;
@@ -29,6 +33,7 @@ namespace GameState {
 
         private void Awake() {
             _uiInGame = FindObjectOfType<UIIngame>();
+            boosterController = new BoosterController(this);
         }
 
         private void Start() {
@@ -69,12 +74,28 @@ namespace GameState {
             }
 
             _uiInGame.SetRoleUI(playerRole);
+            WaitingStartGame().Forget();
+        }
+
+        private async UniTaskVoid WaitingStartGame()
+        {
+            mapSpawner.SpawnMap();
+            _uiInGame.SetWaitingUI();
+            countDownTimer.SetTimeToWait(gameModeSO.PlayTime);
+
+            PanelData panelData = new PanelData();
+            panelData.Add(PanelDataKey.PlayerRole, _playerRole);
+            panelData.Add(PanelDataKey.BoosterController, boosterController);
+            PanelManager.Instance.OpenPanel<PanelChooseBooster>(panelData);
+
+            await UniTask.Delay((int)(waitingTime * 1000));
+            PanelManager.Instance.ClosePanel<PanelChooseBooster>();
             StartGame();
         }
 
-        private void StartGame() {
-            mapSpawner.SpawnMap();
-            countDownTimer.SetTimeToWait(gameModeSO.PlayTime);
+        private void StartGame()
+        {
+            countDownTimer.SetRunningTime(true);
         }
 
         public void OnFullItem() {
@@ -84,5 +105,36 @@ namespace GameState {
                 GameManager.Instance.OnLose();
             }
         }
+
+        #region Control Booster
+        public void EnableLight(bool enabled = false)
+        {
+            FogOfWarWorld fow = FindObjectOfType<FogOfWarWorld>();
+            if (!fow)
+                return;
+
+            fow.enabled = enabled;
+        }
+
+        public void AddTime(float time = 10f)
+        {
+            countDownTimer.AddTime(time);
+        }
+
+        public void BoostSpeed()
+        {
+            PlayerMovement playerMovement = (_playerRole == PlayerRole.Imposter) ? 
+                humanPlayer.GetComponent<PlayerMovement>() :
+                monsterPlayer.GetComponent<PlayerMovement>();
+
+            playerMovement?.BoostSpeed();
+        }
+
+        public void MoreItem()
+        {
+            itemSpawner.SetNumberOfItemsToSpawn(20);
+            itemSpawner.SpawnItems();
+        }
+        #endregion
     }
 }

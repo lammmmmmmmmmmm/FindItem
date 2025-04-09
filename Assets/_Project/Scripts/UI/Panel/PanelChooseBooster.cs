@@ -7,6 +7,7 @@ namespace Survivor.UI
 {
     public class PanelChooseBooster : PanelBase
     {
+        private BoosterController boosterController;
         [SerializeField] private BoosterDataSO boosterDataSO;
 
         [SerializeField] private List<BoosterButton> listBoosterBtn = new();
@@ -23,6 +24,7 @@ namespace Survivor.UI
             base.Open(panelData);
 
             PlayerRole playerRole = panelData.Get<PlayerRole>(PanelDataKey.PlayerRole);
+            boosterController = panelData.Get<BoosterController>(PanelDataKey.BoosterController);
 
             SetupBooster(playerRole);
         }
@@ -41,7 +43,7 @@ namespace Survivor.UI
                     return;
                 }
 
-                listBoosterBtn[counter].SetButton(boosterData, playerRole, null);
+                listBoosterBtn[counter].SetButton(boosterData, playerRole, boosterController.UseBooster);
                 counter++;
             }
 
