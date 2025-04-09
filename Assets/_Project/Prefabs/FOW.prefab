@@ -100,8 +100,8 @@ MonoBehaviour:
   UIImage: {fileID: 0}
   revealerMode: 1
   MaxNumRevealersPerFrame: 1
-  MaxPossibleRevealers: 128
-  MaxPossibleSegmentsPerRevealer: 64
+  MaxPossibleRevealers: 1
+  MaxPossibleSegmentsPerRevealer: 128
   is2D: 1
   gamePlane: 0
   FogOfWarMaterial: {fileID: 0}
