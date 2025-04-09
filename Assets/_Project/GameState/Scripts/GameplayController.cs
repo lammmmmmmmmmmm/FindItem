@@ -12,9 +12,9 @@ using UnityEngine;
 
 namespace GameState {
     public class GameplayController : MonoBehaviour {
-        private GameMode gameMode;
-        private UIIngame uiIngame;
-        private PlayerRole playerRole;
+        private GameMode _gameMode;
+        private UIIngame _uiInGame;
+        private PlayerRole _playerRole;
         private float waitingTime = 10;
         private BoosterController boosterController;
 
@@ -27,70 +27,64 @@ namespace GameState {
         [Header("Map")]
         [SerializeField] private GameModeSO gameModeSO;
         [SerializeField] private CountDownTimer countDownTimer;
-        [SerializeField] private BotSpawner botSpawner;
+        [SerializeField] private BotManager botManager;
         [SerializeField] private ItemSpawner itemSpawner;
         [SerializeField] private MapSpawner mapSpawner;
 
-        private void Awake()
-        {
-            uiIngame = FindObjectOfType<UIIngame>();
+        private void Awake() {
+            _uiInGame = FindObjectOfType<UIIngame>();
             boosterController = new BoosterController(this);
         }
 
         private void Start() {
-            gameMode = GameManager.Instance.gameMode;
+            _gameMode = GameManager.Instance.gameMode;
 
-            botSpawner.SetBotCount(gameModeSO.NumberOfHumanBots, gameModeSO.NumberOfMonsterBots);
-            botSpawner.SetBotConfig(gameModeSO.HumanBotConfigSO, gameModeSO.MonsterBotConfigSO);
-            
+            botManager.SetBotCount(gameModeSO.NumberOfHumanBots, gameModeSO.NumberOfMonsterBots);
+            botManager.SetBotConfig(gameModeSO.HumanBotConfigSO, gameModeSO.MonsterBotConfigSO);
+
             itemSpawner.SetNumberOfItemsToSpawn(gameModeSO.NumberOfItemsToSpawn);
-            
+
             mapSpawner.SetRandomMaps(gameModeSO.MapPrefabs);
 
             ShowChooseRole();
         }
 
-        private void ShowChooseRole()
-        {
+        private void ShowChooseRole() {
             PanelData panelData = new PanelData();
-            Action<PlayerRole> chooseRoleAction = (role) => SetPlayerRole(role);
+            Action<PlayerRole> chooseRoleAction = SetPlayerRole;
 
             panelData.Add("ChooseRoleAction", chooseRoleAction);
 
             PanelManager.Instance.OpenPanel<PanelChooseRole>(panelData);
         }
 
-        private void SetPlayerRole(PlayerRole playerRole)
-        {
-            this.playerRole = playerRole;
-            Debug.Log("Update Role");
-            if (playerRole == PlayerRole.Imposter)
-            {
+        private void SetPlayerRole(PlayerRole playerRole) {
+            _playerRole = playerRole;
+            Debug.Log("Update Role: " + playerRole);
+            if (playerRole == PlayerRole.Imposter) {
                 humanPlayer.SetActive(true);
                 monsterPlayer.SetActive(false);
                 virtualCamera.Follow = humanPlayer.transform;
-                botSpawner.SetAllHumanDieEvent(null);
-            }
-            else
-            {
+                botManager.SetAllHumanDieEvent(() => GameManager.Instance.OnLose());
+            } else {
                 humanPlayer.SetActive(false);
                 monsterPlayer.SetActive(true);
                 virtualCamera.Follow = monsterPlayer.transform;
-                botSpawner.SetAllHumanDieEvent(() => GameManager.Instance.OnWin());
+                botManager.SetAllHumanDieEvent(() => GameManager.Instance.OnWin());
             }
 
-            uiIngame.SetRoleUI(playerRole);
+            _uiInGame.SetRoleUI(playerRole);
             WaitingStartGame().Forget();
         }
 
         private async UniTaskVoid WaitingStartGame()
         {
             mapSpawner.SpawnMap();
-            uiIngame.SetWaitingUI();
+            _uiInGame.SetWaitingUI();
             countDownTimer.SetTimeToWait(gameModeSO.PlayTime);
 
             PanelData panelData = new PanelData();
-            panelData.Add(PanelDataKey.PlayerRole, playerRole);
+            panelData.Add(PanelDataKey.PlayerRole, _playerRole);
             panelData.Add(PanelDataKey.BoosterController, boosterController);
             PanelManager.Instance.OpenPanel<PanelChooseBooster>(panelData);
 
@@ -104,14 +98,10 @@ namespace GameState {
             countDownTimer.SetRunningTime(true);
         }
 
-        public void OnFullItem()
-        {
-            if (playerRole == PlayerRole.Imposter)
-            {
+        public void OnFullItem() {
+            if (_playerRole == PlayerRole.Imposter) {
                 GameManager.Instance.OnWin();
-            }
-            else
-            {
+            } else {
                 GameManager.Instance.OnLose();
             }
         }
@@ -133,7 +123,7 @@ namespace GameState {
 
         public void BoostSpeed()
         {
-            PlayerMovement playerMovement = (playerRole == PlayerRole.Imposter) ? 
+            PlayerMovement playerMovement = (_playerRole == PlayerRole.Imposter) ? 
                 humanPlayer.GetComponent<PlayerMovement>() :
                 monsterPlayer.GetComponent<PlayerMovement>();
 

@@ -11,9 +11,9 @@ namespace Item {
         
         public int TotalItems => spots.Length;
         
-        public UnityEvent<int> onItemUnloadedEvent;
-        public UnityEvent onAllItemsUnloadedEvent;
-        public UnityEvent onItemUnloadedEventWithPlayer;
+        public UnityEvent<ItemUnloadPayload> onItemUnloadedEvent;
+        public UnityEvent<ItemUnloadPayload> onAllItemsUnloadedEvent;
+        public UnityEvent<ItemUnloadPayload> onItemUnloadedEventWithPlayer;
 
         private void OnTriggerEnter2D(Collider2D other) {
             if (humanLayerMask.Contains(other.gameObject.layer)) {
@@ -26,7 +26,11 @@ namespace Item {
                 AddItemToFreeSpot();
                 
                 if (other.CompareTag("Player")) {
-                    onItemUnloadedEventWithPlayer.Invoke();
+                    var payload = new ItemUnloadPayload {
+                        CurrentSpotIndex = _currentSpotIndex,
+                        UnloadPosition = transform.position
+                    };
+                    onItemUnloadedEventWithPlayer.Invoke(payload);
                 }
             }
         }
@@ -37,12 +41,16 @@ namespace Item {
             spots[_currentSpotIndex].SetActive(true);
             _currentSpotIndex++;
             
+            var payload = new ItemUnloadPayload {
+                CurrentSpotIndex = _currentSpotIndex,
+                UnloadPosition = transform.position
+            };
+            
             if (_currentSpotIndex >= spots.Length) {
-                onAllItemsUnloadedEvent.Invoke();
+                onAllItemsUnloadedEvent.Invoke(payload);
             }
             
-            //TODO: add event when player unloads item
-            onItemUnloadedEvent.Invoke(_currentSpotIndex);
+            onItemUnloadedEvent.Invoke(payload);
         }
     }
 }

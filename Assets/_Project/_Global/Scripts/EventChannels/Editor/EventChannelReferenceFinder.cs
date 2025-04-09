@@ -3,7 +3,7 @@ using _Global.EventChannels.ScriptableObjects;
 using UnityEditor;
 using UnityEngine;
 
-namespace _Project._Global.Scripts.EventChannels.Editor {
+namespace _Global.EventChannels.Editor {
     [CustomEditor(typeof(EventChannelSOBase), true)]
     public class EventChannelReferenceFinder : UnityEditor.Editor {
         private readonly Dictionary<GameObject, List<Component>> _referencingComponents = new();

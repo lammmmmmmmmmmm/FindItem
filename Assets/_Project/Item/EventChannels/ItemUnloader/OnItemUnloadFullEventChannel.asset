@@ -9,6 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39af1b1f12fa1403f93bfddec08a96a2, type: 3}
-  m_Name: OnItemUnloadedIntEventChannel
+  m_Script: {fileID: 11500000, guid: f37ad8aa6ab849fdbf10092612cfe62b, type: 3}
+  m_Name: OnItemUnloadFullEventChannel
   m_EditorClassIdentifier: 

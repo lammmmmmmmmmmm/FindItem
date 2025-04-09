@@ -3,10 +3,8 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Survivor.UI
-{
-    public class PanelWin : PanelBase
-    {
+namespace Survivor.UI {
+    public class PanelWin : PanelBase {
         [Header("Reward")]
         [SerializeField] private TextMeshProUGUI textNumCoin;
         [SerializeField] private TextMeshProUGUI textNumDiamond;
@@ -19,28 +17,26 @@ namespace Survivor.UI
         [SerializeField] private TextMeshProUGUI textQuantityBonus;
         [SerializeField] private Button closeBtn;
 
-        private int numCoin;
-        private int numDiamond;
+        private int _numCoin;
+        private int _numDiamond;
 
-        protected override void Setup()
-        {
+        protected override void Setup() {
             base.Setup();
             claimBtn.onClick.AddListener(() => ClickClaim().Forget());
             closeBtn.onClick.AddListener(() => ClickClaim().Forget());
             bonusClaimBtn.onClick.AddListener(() => ClickBonusClaim().Forget());
         }
 
-        public override void Open(PanelData panelData)
-        {
+        public override void Open(PanelData panelData) {
             base.Open(panelData);
 
             //PlayerRole playerRole = panelData.Get<PlayerRole>(PanelDataKey.PlayerRole);
 
-            numCoin = GameConfigs.COIN_WIN;
-            numDiamond = GameConfigs.DIAMOND_WIN;
+            _numCoin = DataManager.Instance.GameSessionData.totalCoinCollected;
+            _numDiamond = DataManager.Instance.GameSessionData.totalDiamondCollected;
 
-            textNumCoin.text = numCoin.ToString();
-            textNumDiamond.text = numDiamond.ToString();
+            textNumCoin.text = _numCoin.ToString();
+            textNumDiamond.text = _numDiamond.ToString();
 
             bonusClaimBtn.gameObject.SetActive(false);
             closeBtn.gameObject.SetActive(false);
@@ -64,6 +60,7 @@ namespace Survivor.UI
         public override void Close()
         {
             base.Close();
+            DataManager.Instance.ResetGameSessionData();
             LoadingManager.Instance.LoadScene("HomeScene").Forget();
         }
     }

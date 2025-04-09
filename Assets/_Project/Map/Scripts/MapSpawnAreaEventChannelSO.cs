@@ -1,7 +1,7 @@
-using Map;
+using _Global.EventChannels.ScriptableObjects;
 using UnityEngine;
 
-namespace _Global.EventChannels.ScriptableObjects {
+namespace Map {
     /// <summary>
     /// General Event Channel that broadcasts and carries MapSpawnArea payload.
     /// </summary>

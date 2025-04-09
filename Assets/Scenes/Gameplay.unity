@@ -753,6 +753,51 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!1 &521863416
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 521863418}
+  - component: {fileID: 521863419}
+  m_Layer: 0
+  m_Name: Coin Session Tracker
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &521863418
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 521863416}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &521863419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 521863416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5189853d60f443cbbdaf8da5176dffc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coinPrefab: {fileID: 7991544455070721901, guid: 01f5f06f2b188364ba842cf523e343fe, type: 3}
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -950,6 +995,103 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &804028782
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 804028784}
+  - component: {fileID: 804028783}
+  m_Layer: 0
+  m_Name: On Game Ends Event Listener
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &804028783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 804028782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73d494b4b9e32479fb7000d6a2e045ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventChannel: {fileID: 11400000, guid: 9382f75f58aed004d9cb17c41bae8591, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1234029286}
+        m_TargetAssemblyTypeName: Bot.Entities.BotSpawner, Assembly-CSharp
+        m_MethodName: StopAllBots
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1521725190}
+        m_TargetAssemblyTypeName: Character.PlayerMovement, Assembly-CSharp
+        m_MethodName: set_CurrentMoveSpeed
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1715155780}
+        m_TargetAssemblyTypeName: Character.PlayerMovement, Assembly-CSharp
+        m_MethodName: set_CurrentMoveSpeed
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 434639513}
+        m_TargetAssemblyTypeName: GameState.CountDownTimer, Assembly-CSharp
+        m_MethodName: StopTimer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  delay: 0
+--- !u!4 &804028784
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 804028782}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &830512791
 GameObject:
   m_ObjectHideFlags: 0
@@ -1138,15 +1280,30 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 868352691}
-  - component: {fileID: 868352690}
+  - component: {fileID: 868352692}
   m_Layer: 0
-  m_Name: On Item Full Event Listener
+  m_Name: On Item Unload Full Adapter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &868352690
+--- !u!4 &868352691
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 868352689}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &868352692
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1155,41 +1312,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 868352689}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 73d494b4b9e32479fb7000d6a2e045ed, type: 3}
+  m_Script: {fileID: 11500000, guid: 572a68ee985a80b4ca1f2d4ea7933fce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventChannel: {fileID: 11400000, guid: f137f3a23b481404fb25b8a6cec5e8c7, type: 2}
-  response:
+  channel: {fileID: 11400000, guid: c8960624df3b7f1489a729447aec7354, type: 2}
+  onPayload:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1234029286}
-        m_TargetAssemblyTypeName: Bot.Entities.BotSpawner, Assembly-CSharp
-        m_MethodName: StopAllBots
+      - m_Target: {fileID: 11400000, guid: 9382f75f58aed004d9cb17c41bae8591, type: 2}
+        m_TargetAssemblyTypeName: _Global.EventChannels.ScriptableObjects.VoidEventChannelSO,
+          Assembly-CSharp
+        m_MethodName: RaiseEvent
         m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1521725190}
-        m_TargetAssemblyTypeName: Character.PlayerMovement, Assembly-CSharp
-        m_MethodName: SetMoveSpeed
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1715155780}
-        m_TargetAssemblyTypeName: Character.PlayerMovement, Assembly-CSharp
-        m_MethodName: SetMoveSpeed
-        m_Mode: 4
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1210,22 +1344,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  delay: 0
---- !u!4 &868352691
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 868352689}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  onCurrentSpotIndex:
+    m_PersistentCalls:
+      m_Calls: []
+  onUnloadPosition:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &892147398
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1240,7 +1364,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8162813692679426955, guid: ce82e64918ae2d94c9580ea65b873367, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8613067030680555624, guid: ce82e64918ae2d94c9580ea65b873367, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1329,7 +1453,7 @@ GameObject:
   - component: {fileID: 953583900}
   - component: {fileID: 953583901}
   m_Layer: 0
-  m_Name: On Lose Event Listener
+  m_Name: On Player Die Event Listener
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1366,34 +1490,11 @@ MonoBehaviour:
   response:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1234029286}
-        m_TargetAssemblyTypeName: Bot.Entities.BotSpawner, Assembly-CSharp
-        m_MethodName: StopAllBots
+      - m_Target: {fileID: 11400000, guid: 9382f75f58aed004d9cb17c41bae8591, type: 2}
+        m_TargetAssemblyTypeName: _Global.EventChannels.ScriptableObjects.VoidEventChannelSO,
+          Assembly-CSharp
+        m_MethodName: RaiseEvent
         m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1521725190}
-        m_TargetAssemblyTypeName: Character.PlayerMovement, Assembly-CSharp
-        m_MethodName: SetMoveSpeed
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1715155780}
-        m_TargetAssemblyTypeName: Character.PlayerMovement, Assembly-CSharp
-        m_MethodName: SetMoveSpeed
-        m_Mode: 4
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1414,7 +1515,7 @@ GameObject:
   - component: {fileID: 1234029285}
   - component: {fileID: 1234029286}
   m_Layer: 0
-  m_Name: Bot Spawner
+  m_Name: Bot Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1455,7 +1556,22 @@ MonoBehaviour:
   monsterBotConfigSO: {fileID: 0}
   humanBotPrefab: {fileID: 8830143212163603090, guid: 26111da7ba5cffd4eb0b4de825ae6d53, type: 3}
   monsterBotPrefab: {fileID: 3652651036537671330, guid: 24789686df77e504487dd166ab4afadf, type: 3}
-  OnAllHumanDie: {fileID: 11400000, guid: d2264abe7c540604d9181b7dbe8564d9, type: 2}
+  onAllHumanDie:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: d2264abe7c540604d9181b7dbe8564d9, type: 2}
+        m_TargetAssemblyTypeName: _Global.EventChannels.ScriptableObjects.VoidEventChannelSO,
+          Assembly-CSharp
+        m_MethodName: RaiseEvent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1379001391
 GameObject:
   m_ObjectHideFlags: 0
@@ -1826,6 +1942,162 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1547380925
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1547380927}
+  - component: {fileID: 1547380926}
+  m_Layer: 0
+  m_Name: On Item Unload Adapter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1547380926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1547380925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 572a68ee985a80b4ca1f2d4ea7933fce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  channel: {fileID: 11400000, guid: abe2fc407c511964f9ef1e6d2d0d4d3c, type: 2}
+  onPayload:
+    m_PersistentCalls:
+      m_Calls: []
+  onCurrentSpotIndex:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1379001395}
+        m_TargetAssemblyTypeName: Item.AmountOfItemsLeftUIUpdater, Assembly-CSharp
+        m_MethodName: UpdateText
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onUnloadPosition:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!4 &1547380927
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1547380925}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1564757988
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1564757990}
+  - component: {fileID: 1564757989}
+  m_Layer: 0
+  m_Name: On Item Unload By Player Adapter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1564757989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1564757988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 572a68ee985a80b4ca1f2d4ea7933fce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  channel: {fileID: 11400000, guid: b8e60802b2077c8408f56021d51e0ec8, type: 2}
+  onPayload:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 376434246}
+        m_TargetAssemblyTypeName: Indicator.GoalIndicator, Assembly-CSharp
+        m_MethodName: DisableIndicator
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1521725187}
+        m_TargetAssemblyTypeName: Indicator.ItemIndicator, Assembly-CSharp
+        m_MethodName: DelayFindItems
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onCurrentSpotIndex:
+    m_PersistentCalls:
+      m_Calls: []
+  onUnloadPosition:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 521863419}
+        m_TargetAssemblyTypeName: Item.CoinUpdater, Assembly-CSharp
+        m_MethodName: AddCoin
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!4 &1564757990
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1564757988}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1594562010
 GameObject:
   m_ObjectHideFlags: 0
@@ -1956,10 +2228,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1658382732}
   - component: {fileID: 1658382731}
-  - component: {fileID: 1658382733}
-  - component: {fileID: 1658382734}
   m_Layer: 0
-  m_Name: Item Event Listener
+  m_Name: On Item Picked Up Event Listener
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2021,75 +2291,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1658382733
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1658382730}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8ff66d50c3a4901a5a33b5901951595, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  channel: {fileID: 11400000, guid: fd0718028c1ef8848a080aa9b447bb03, type: 2}
-  onEventRaised:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1379001395}
-        m_TargetAssemblyTypeName: Item.AmountOfItemsLeftUIUpdater, Assembly-CSharp
-        m_MethodName: UpdateText
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &1658382734
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1658382730}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 73d494b4b9e32479fb7000d6a2e045ed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  eventChannel: {fileID: 11400000, guid: 42192cb4a1d940d43a063b756351da2a, type: 2}
-  response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 376434246}
-        m_TargetAssemblyTypeName: Indicator.GoalIndicator, Assembly-CSharp
-        m_MethodName: DisableIndicator
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1521725187}
-        m_TargetAssemblyTypeName: Indicator.ItemIndicator, Assembly-CSharp
-        m_MethodName: DelayFindItems
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  delay: 0
 --- !u!1 &1687039477
 GameObject:
   m_ObjectHideFlags: 0
@@ -2494,6 +2695,68 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1852221911
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1852221913}
+  - component: {fileID: 1852221912}
+  m_Layer: 0
+  m_Name: On All Human Die Event Listener
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1852221912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1852221911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73d494b4b9e32479fb7000d6a2e045ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventChannel: {fileID: 11400000, guid: d2264abe7c540604d9181b7dbe8564d9, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 9382f75f58aed004d9cb17c41bae8591, type: 2}
+        m_TargetAssemblyTypeName: _Global.EventChannels.ScriptableObjects.VoidEventChannelSO,
+          Assembly-CSharp
+        m_MethodName: RaiseEvent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  delay: 0
+--- !u!4 &1852221913
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1852221911}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1869901319
 GameObject:
   m_ObjectHideFlags: 0
@@ -2661,34 +2924,11 @@ MonoBehaviour:
   response:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1234029286}
-        m_TargetAssemblyTypeName: Bot.Entities.BotSpawner, Assembly-CSharp
-        m_MethodName: StopAllBots
+      - m_Target: {fileID: 11400000, guid: 9382f75f58aed004d9cb17c41bae8591, type: 2}
+        m_TargetAssemblyTypeName: _Global.EventChannels.ScriptableObjects.VoidEventChannelSO,
+          Assembly-CSharp
+        m_MethodName: RaiseEvent
         m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1521725190}
-        m_TargetAssemblyTypeName: Character.PlayerMovement, Assembly-CSharp
-        m_MethodName: SetMoveSpeed
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1715155780}
-        m_TargetAssemblyTypeName: Character.PlayerMovement, Assembly-CSharp
-        m_MethodName: SetMoveSpeed
-        m_Mode: 4
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2804,10 +3044,6 @@ PrefabInstance:
     - target: {fileID: 8170153791668043269, guid: 0d230cc8be529a542a08cb878ab14b18, type: 3}
       propertyPath: m_Name
       value: Floating Joystick
-      objectReference: {fileID: 0}
-    - target: {fileID: 8170153791668043269, guid: 0d230cc8be529a542a08cb878ab14b18, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3111,7 +3347,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.00012207031}
+  m_AnchoredPosition: {x: 0, y: 0.00024414062}
   m_SizeDelta: {x: -1557.4536, y: 100.1194}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &2108111295
@@ -3215,7 +3451,7 @@ MonoBehaviour:
   virtualCamera: {fileID: 2035078912}
   gameModeSO: {fileID: 11400000, guid: b4e350b6be281b543aa3ec5ad9bb18aa, type: 2}
   countDownTimer: {fileID: 434639513}
-  botSpawner: {fileID: 1234029286}
+  botManager: {fileID: 1234029286}
   itemSpawner: {fileID: 93953757}
   mapSpawner: {fileID: 838211639}
 --- !u!1001 &2221485179544388773
@@ -3399,12 +3635,17 @@ SceneRoots:
   - {fileID: 953583900}
   - {fileID: 1416447615}
   - {fileID: 93953756}
-  - {fileID: 868352691}
+  - {fileID: 521863418}
   - {fileID: 1658382732}
+  - {fileID: 868352691}
+  - {fileID: 1547380927}
+  - {fileID: 1564757990}
   - {fileID: 1727912205}
   - {fileID: 1234029285}
   - {fileID: 830512793}
+  - {fileID: 1852221913}
   - {fileID: 1535078605}
   - {fileID: 838211638}
   - {fileID: 1594562012}
   - {fileID: 2122861676}
+  - {fileID: 804028784}

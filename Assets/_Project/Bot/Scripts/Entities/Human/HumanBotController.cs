@@ -12,11 +12,11 @@ namespace Bot.Entities.Human {
     public class HumanBotController : MonoBehaviour, IDie {
         [SerializeField] private TargetFinder itemFinder;
         [SerializeField] private TargetFinder monsterFinder;
-        
+
         private HumanBotConfig _config;
         private Hide _humanBotHide;
 
-        private BotSpawner _spawner;
+        private BotManager _botManager;
 
         private bool _shouldGoToItem;
 
@@ -76,25 +76,24 @@ namespace Bot.Entities.Human {
             if (_itemCarrier.IsCarrying) {
                 _itemCarrier.DropItem();
             }
-            
+
             _ai.canMove = false;
             transform.position = position;
 
             DOVirtual.DelayedCall(0.5f, () => {
-                _spawner.RemoveBot(this);
+                _botManager.RemoveBot(this);
                 Destroy(gameObject);
             }).SetLink(gameObject);
         }
 
-        public void Add(BotSpawner botSpawner)
-        {
-            _spawner = botSpawner;
+        public void SetSpawner(BotManager botManager) {
+            _botManager = botManager;
         }
 
         public void SetConfig(HumanBotConfig config) {
             _config = config;
         }
-        
+
         public void Stop() {
             _ai.canMove = false;
             _ai.maxSpeed = 0;

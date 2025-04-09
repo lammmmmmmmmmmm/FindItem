@@ -41,5 +41,9 @@ namespace GameState {
         {
             _timer?.AddTime(time);
         }
+        
+        public void StopTimer() {
+            _running = false;
+        }
     }
 }
