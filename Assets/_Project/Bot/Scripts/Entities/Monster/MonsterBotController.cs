@@ -8,7 +8,7 @@ namespace Bot.Entities.Monster {
     public class MonsterBotController : MonoBehaviour {
         [SerializeField] private TargetFinder humanFinder;
 
-        private BotSpawner _botSpawner;
+        private BotManager _botManager;
 
         private MonsterBotConfigSO _config;
         private StateMachine _stateMachine;

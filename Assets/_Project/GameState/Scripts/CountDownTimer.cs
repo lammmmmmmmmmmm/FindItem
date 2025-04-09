@@ -30,5 +30,9 @@ namespace GameState {
             }
             _running = true;
         }
+        
+        public void StopTimer() {
+            _running = false;
+        }
     }
 }

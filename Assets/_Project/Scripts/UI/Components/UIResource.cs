@@ -27,7 +27,7 @@ namespace Survivor.UI
 
         public void UpdateQuantity(float delay = 0)
         {
-            int curValue = DataManager.Instance.PlayerData.resourcesData[resourceType];
+            int curValue = DataManager.Instance.PlayerData.ResourcesData[resourceType];
             if (curValue != _displayValue)
             {
                 _displayValue = curValue;

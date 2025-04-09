@@ -764,7 +764,7 @@ GameObject:
   - component: {fileID: 521863418}
   - component: {fileID: 521863419}
   m_Layer: 0
-  m_Name: Coin Reward
+  m_Name: Coin Session Tracker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1183,15 +1183,30 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 868352691}
-  - component: {fileID: 868352690}
+  - component: {fileID: 868352692}
   m_Layer: 0
-  m_Name: On Item Full Event Listener
+  m_Name: On Item Unload Full Adapter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &868352690
+--- !u!4 &868352691
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 868352689}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &868352692
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1200,11 +1215,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 868352689}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 73d494b4b9e32479fb7000d6a2e045ed, type: 3}
+  m_Script: {fileID: 11500000, guid: 572a68ee985a80b4ca1f2d4ea7933fce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventChannel: {fileID: 11400000, guid: f137f3a23b481404fb25b8a6cec5e8c7, type: 2}
-  response:
+  channel: {fileID: 11400000, guid: c8960624df3b7f1489a729447aec7354, type: 2}
+  onPayload:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1234029286}
@@ -1221,7 +1236,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1521725190}
         m_TargetAssemblyTypeName: Character.PlayerMovement, Assembly-CSharp
-        m_MethodName: SetMoveSpeed
+        m_MethodName: set_CurrentMoveSpeed
         m_Mode: 4
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1233,8 +1248,20 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1715155780}
         m_TargetAssemblyTypeName: Character.PlayerMovement, Assembly-CSharp
-        m_MethodName: SetMoveSpeed
+        m_MethodName: set_CurrentMoveSpeed
         m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 434639513}
+        m_TargetAssemblyTypeName: GameState.CountDownTimer, Assembly-CSharp
+        m_MethodName: StopTimer
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1255,22 +1282,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  delay: 0
---- !u!4 &868352691
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 868352689}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  onCurrentSpotIndex:
+    m_PersistentCalls:
+      m_Calls: []
+  onUnloadPosition:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &892147398
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1374,7 +1391,7 @@ GameObject:
   - component: {fileID: 953583900}
   - component: {fileID: 953583901}
   m_Layer: 0
-  m_Name: On Lose Event Listener
+  m_Name: On Player Die Event Listener
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1447,6 +1464,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 434639513}
+        m_TargetAssemblyTypeName: GameState.CountDownTimer, Assembly-CSharp
+        m_MethodName: StopTimer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   delay: 0
 --- !u!1 &1234029284
 GameObject:
@@ -1459,7 +1488,7 @@ GameObject:
   - component: {fileID: 1234029285}
   - component: {fileID: 1234029286}
   m_Layer: 0
-  m_Name: Bot Spawner
+  m_Name: Bot Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1500,7 +1529,22 @@ MonoBehaviour:
   monsterBotConfigSO: {fileID: 0}
   humanBotPrefab: {fileID: 8830143212163603090, guid: 26111da7ba5cffd4eb0b4de825ae6d53, type: 3}
   monsterBotPrefab: {fileID: 3652651036537671330, guid: 24789686df77e504487dd166ab4afadf, type: 3}
-  OnAllHumanDie: {fileID: 11400000, guid: d2264abe7c540604d9181b7dbe8564d9, type: 2}
+  onAllHumanDie:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: d2264abe7c540604d9181b7dbe8564d9, type: 2}
+        m_TargetAssemblyTypeName: _Global.EventChannels.ScriptableObjects.VoidEventChannelSO,
+          Assembly-CSharp
+        m_MethodName: RaiseEvent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1379001391
 GameObject:
   m_ObjectHideFlags: 0
@@ -1882,7 +1926,7 @@ GameObject:
   - component: {fileID: 1547380927}
   - component: {fileID: 1547380926}
   m_Layer: 0
-  m_Name: Item Unload Adapter
+  m_Name: On Item Unload Adapter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1948,7 +1992,7 @@ GameObject:
   - component: {fileID: 1564757990}
   - component: {fileID: 1564757989}
   m_Layer: 0
-  m_Name: Item Unload By Player Adapter
+  m_Name: On Item Unload By Player Adapter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2158,7 +2202,7 @@ GameObject:
   - component: {fileID: 1658382732}
   - component: {fileID: 1658382731}
   m_Layer: 0
-  m_Name: Item Event Listener
+  m_Name: On Item Picked Up Event Listener
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2624,6 +2668,103 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1852221911
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1852221913}
+  - component: {fileID: 1852221912}
+  m_Layer: 0
+  m_Name: On All Human Die Event Listener
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1852221912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1852221911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73d494b4b9e32479fb7000d6a2e045ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventChannel: {fileID: 11400000, guid: d2264abe7c540604d9181b7dbe8564d9, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1234029286}
+        m_TargetAssemblyTypeName: Bot.Entities.BotSpawner, Assembly-CSharp
+        m_MethodName: StopAllBots
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1521725190}
+        m_TargetAssemblyTypeName: Character.PlayerMovement, Assembly-CSharp
+        m_MethodName: SetMoveSpeed
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1715155780}
+        m_TargetAssemblyTypeName: Character.PlayerMovement, Assembly-CSharp
+        m_MethodName: SetMoveSpeed
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 434639513}
+        m_TargetAssemblyTypeName: GameState.CountDownTimer, Assembly-CSharp
+        m_MethodName: StopTimer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  delay: 0
+--- !u!4 &1852221913
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1852221911}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1869901319
 GameObject:
   m_ObjectHideFlags: 0
@@ -2758,114 +2899,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1869901319}
   m_CullTransparentMesh: 1
---- !u!1 &1875682996
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1875682998}
-  - component: {fileID: 1875682997}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1875682997
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1875682996}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ae54dd9024228b4693d2c32421fc05b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  channel: {fileID: 0}
-  onTestInt:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 838211637}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: set_tag
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 1
-          m_BoolArgument: 0
-        m_CallState: 2
-  onTestString:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 838211639}
-        m_TargetAssemblyTypeName: UnityEngine.Object, UnityEngine
-        m_MethodName: set_name
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  onTestFloat:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 521863419}
-        m_TargetAssemblyTypeName: Item.CoinUpdater, Assembly-CSharp
-        m_MethodName: AddCoin
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  onTestDouble:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2122861677}
-        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-        m_MethodName: set_enabled
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-  onTestInt2:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!4 &1875682998
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1875682996}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1928707115
 GameObject:
   m_ObjectHideFlags: 0
@@ -3345,7 +3378,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.00012207031}
+  m_AnchoredPosition: {x: 0, y: 0.00024414062}
   m_SizeDelta: {x: -1557.4536, y: 100.1194}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &2108111295
@@ -3449,7 +3482,7 @@ MonoBehaviour:
   virtualCamera: {fileID: 2035078912}
   gameModeSO: {fileID: 11400000, guid: b4e350b6be281b543aa3ec5ad9bb18aa, type: 2}
   countDownTimer: {fileID: 434639513}
-  botSpawner: {fileID: 1234029286}
+  botManager: {fileID: 1234029286}
   itemSpawner: {fileID: 93953757}
   mapSpawner: {fileID: 838211639}
 --- !u!1001 &2221485179544388773
@@ -3634,15 +3667,15 @@ SceneRoots:
   - {fileID: 1416447615}
   - {fileID: 93953756}
   - {fileID: 521863418}
-  - {fileID: 868352691}
   - {fileID: 1658382732}
+  - {fileID: 868352691}
   - {fileID: 1547380927}
   - {fileID: 1564757990}
   - {fileID: 1727912205}
   - {fileID: 1234029285}
   - {fileID: 830512793}
+  - {fileID: 1852221913}
   - {fileID: 1535078605}
   - {fileID: 838211638}
   - {fileID: 1594562012}
   - {fileID: 2122861676}
-  - {fileID: 1875682998}

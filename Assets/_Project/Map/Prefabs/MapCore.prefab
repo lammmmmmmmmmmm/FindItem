@@ -673,9 +673,9 @@ MonoBehaviour:
   onItemUnloadedEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400000, guid: fd0718028c1ef8848a080aa9b447bb03, type: 2}
-        m_TargetAssemblyTypeName: _Global.EventChannels.ScriptableObjects.GenericEventChannelSO`1[[System.Int32,
-          mscorlib
+      - m_Target: {fileID: 11400000, guid: abe2fc407c511964f9ef1e6d2d0d4d3c, type: 2}
+        m_TargetAssemblyTypeName: _Global.EventChannels.ScriptableObjects.GenericEventChannelSO`1[[Item.ItemUnloadPayload,
+          Assembly-CSharp
         m_MethodName: RaiseEvent
         m_Mode: 0
         m_Arguments:
@@ -689,11 +689,11 @@ MonoBehaviour:
   onAllItemsUnloadedEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400000, guid: f137f3a23b481404fb25b8a6cec5e8c7, type: 2}
-        m_TargetAssemblyTypeName: _Global.EventChannels.ScriptableObjects.VoidEventChannelSO,
+      - m_Target: {fileID: 11400000, guid: c8960624df3b7f1489a729447aec7354, type: 2}
+        m_TargetAssemblyTypeName: _Global.EventChannels.ScriptableObjects.GenericEventChannelSO`1[[Item.ItemUnloadPayload,
           Assembly-CSharp
         m_MethodName: RaiseEvent
-        m_Mode: 1
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -705,11 +705,11 @@ MonoBehaviour:
   onItemUnloadedEventWithPlayer:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400000, guid: 42192cb4a1d940d43a063b756351da2a, type: 2}
-        m_TargetAssemblyTypeName: _Global.EventChannels.ScriptableObjects.VoidEventChannelSO,
+      - m_Target: {fileID: 11400000, guid: b8e60802b2077c8408f56021d51e0ec8, type: 2}
+        m_TargetAssemblyTypeName: _Global.EventChannels.ScriptableObjects.GenericEventChannelSO`1[[Item.ItemUnloadPayload,
           Assembly-CSharp
         m_MethodName: RaiseEvent
-        m_Mode: 1
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

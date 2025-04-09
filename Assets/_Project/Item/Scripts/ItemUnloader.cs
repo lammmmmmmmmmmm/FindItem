@@ -12,7 +12,7 @@ namespace Item {
         public int TotalItems => spots.Length;
         
         public UnityEvent<ItemUnloadPayload> onItemUnloadedEvent;
-        public UnityEvent onAllItemsUnloadedEvent;
+        public UnityEvent<ItemUnloadPayload> onAllItemsUnloadedEvent;
         public UnityEvent<ItemUnloadPayload> onItemUnloadedEventWithPlayer;
 
         private void OnTriggerEnter2D(Collider2D other) {
@@ -43,11 +43,11 @@ namespace Item {
             
             var payload = new ItemUnloadPayload {
                 CurrentSpotIndex = _currentSpotIndex,
-                UnloadPosition = spots[_currentSpotIndex].transform.position
+                UnloadPosition = transform.position
             };
             
             if (_currentSpotIndex >= spots.Length) {
-                onAllItemsUnloadedEvent.Invoke();
+                onAllItemsUnloadedEvent.Invoke(payload);
             }
             
             onItemUnloadedEvent.Invoke(payload);
