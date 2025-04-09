@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 3134454519529483237}
   - component: {fileID: 852739504495448517}
   m_Layer: 7
-  m_Name: Human Monster
+  m_Name: Monster Player
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -154,6 +154,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf680c8e46bca3747b8d649f77a7ad99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  joystick: {fileID: 0}
   defaultMoveSpeed: 10
 --- !u!114 &3134454519529483237
 MonoBehaviour:
@@ -183,7 +184,8 @@ MonoBehaviour:
   targetLayerMask:
     serializedVersion: 2
     m_Bits: 64
-  radius: 4
+  radius: 3
+  targetDetectionInterval: 0.2
   showGizmos: 1
   radiusColor: {r: 1, g: 0, b: 0, a: 1}
   lineColor: {r: 0, g: 1, b: 0, a: 1}
@@ -261,7 +263,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: fda4c1e5766ef374995e3ace8a1fd2a3, type: 2}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -310,7 +312,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5524260096599495403}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1

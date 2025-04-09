@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 871981b72d754b21853258b379629765, type: 3}
   m_Name: Monster Bot Config SO
   m_EditorClassIdentifier: 
-  chaseChance: 1
   wanderingSpeed: 4
+  chaseChance: 0.8
   humanDetectionRange: 8
   attackRange: 3

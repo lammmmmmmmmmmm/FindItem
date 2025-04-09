@@ -20,7 +20,7 @@ namespace Bot.Entities.Monster {
         public void OnEnter() {
             _aiMovement.isStopped = true;
             _targetDie = _humanFinder.Target.GetComponent<IDie>();
-            _chosenTarget = _humanFinder.Target.transform;
+            _chosenTarget = _humanFinder.Target;
             
             Attack();
         }
@@ -33,9 +33,13 @@ namespace Bot.Entities.Monster {
         }
 
         private void Attack() {
-            _monsterBotController.transform.DOScale(Vector2.one * 2f, 0.1f).SetLoops(10, LoopType.Yoyo).OnComplete(() => {
-                // target could be killed by other monster before the animation is done
-                if (!_chosenTarget) return;
+            _monsterBotController.transform.DOScale(Vector2.one * 2f, 0.1f).SetLoops(4, LoopType.Yoyo).OnComplete(() => {
+                _monsterBotController.transform.localScale = Vector2.one;
+                
+                var collider = _chosenTarget.GetComponent<Collider2D>();
+                if (collider) {
+                    collider.enabled = false;
+                }
                 
                 var dir = _chosenTarget.position - _monsterBotController.transform.position;
                 _targetDie.Die(_monsterBotController.transform.position + dir.normalized);

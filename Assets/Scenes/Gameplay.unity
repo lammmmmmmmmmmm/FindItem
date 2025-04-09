@@ -3535,18 +3535,6 @@ PrefabInstance:
       propertyPath: joystick
       value: 
       objectReference: {fileID: 1969743849}
-    - target: {fileID: 3033706888114270110, guid: 8a9f4f38b3b4c1642975bf6531451969, type: 3}
-      propertyPath: m_Color.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3033706888114270110, guid: 8a9f4f38b3b4c1642975bf6531451969, type: 3}
-      propertyPath: m_Color.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3033706888114270110, guid: 8a9f4f38b3b4c1642975bf6531451969, type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4394191731937072551, guid: 8a9f4f38b3b4c1642975bf6531451969, type: 3}
       propertyPath: m_Name
       value: Human Monster
