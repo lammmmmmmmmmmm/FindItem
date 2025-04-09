@@ -30,8 +30,8 @@ namespace Bot.Entities.Monster {
             var attackState = new MonsterAttackState(this, _ai, humanFinder);
 
             _stateMachine.AddAnyTransition(wanderState, () => !humanFinder.Target);
-            _stateMachine.AddAnyTransition(chaseState, () => humanFinder.Target && _shouldChase && !TargetIsInAttackRange());
             
+            _stateMachine.AddTransition(wanderState, chaseState, () => humanFinder.Target && _shouldChase && !TargetIsInAttackRange());
             _stateMachine.AddTransition(chaseState, attackState, () => humanFinder.Target && TargetIsInAttackRange());
 
             _stateMachine.SetState(wanderState);
